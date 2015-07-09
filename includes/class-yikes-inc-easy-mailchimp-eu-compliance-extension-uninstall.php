@@ -32,9 +32,17 @@ class Yikes_Inc_Easy_Mailchimp_EU_Compliance_Extension_Uninstaller {
 		/* Clean up and delete our custom table from the databse */
 		$mc_forms = $wpdb->get_results( 'SELECT * FROM ' . $wpdb->prefix . 'yikes_easy_mc_forms', ARRAY_A );
 		foreach( $mc_forms as $mailchimp_form ) {
+			// parse the array
 			$custom_fields = json_decode( $mailchimp_form['custom_fields'], true );
 			// delete the two eu-compliance fields out of our custom_fields array
 			unset( $custom_fields['eu-compliance-law-checkbox-text'], $custom_fields['eu-compliance-law-checkbox-precheck'] );
+			$wpdb->update( 
+				$wpdb->prefix . 'yikes_easy_mc_forms',
+				array( 
+					'custom_fields' => json_encode( $custom_fields ), // re-encode the array for saving
+				),
+				array( 'ID' => $mailchimp_form['id'] )
+			);
 		}
 		return;
 	}
