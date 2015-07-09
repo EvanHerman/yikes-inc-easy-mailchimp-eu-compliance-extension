@@ -1,6 +1,6 @@
 # Yikes MailChimp EU Law Compliance Extension
 
-This addon extends the base plugin, Easy MailChimp by Yikes Inc](https://github.com/yikesinc/yikes-inc-easy-mailchimp-extender/tree/staging), by adding a check box below all of your forms to ensure your site complies with EU laws.
+This addon extends the base plugin, [Easy MailChimp by Yikes Inc](https://github.com/yikesinc/yikes-inc-easy-mailchimp-extender/tree/staging), by adding a check box below all of your forms to ensure your site complies with EU laws.
 
 ### Preview Screenshot:
 
