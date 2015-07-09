@@ -1,0 +1,28 @@
+@font-face {
+	font-family: 'yikes-mailchimp-eu-law-compliance';
+	src:url('fonts/yikes-mailchimp-eu-law-compliance.eot?wyqchj');
+	src:url('fonts/yikes-mailchimp-eu-law-compliance.eot?#iefixwyqchj') format('embedded-opentype'),
+		url('fonts/yikes-mailchimp-eu-law-compliance.ttf?wyqchj') format('truetype'),
+		url('fonts/yikes-mailchimp-eu-law-compliance.woff?wyqchj') format('woff'),
+		url('fonts/yikes-mailchimp-eu-law-compliance.svg?wyqchj#yikes-mailchimp-eu-law-compliance') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="yikes-mailchimp-eu-"], [class*=" yikes-mailchimp-eu-"] {
+	font-family: 'yikes-mailchimp-eu-law-compliance';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.yikes-mailchimp-eu-law:before {
+	content: "\e600";
+}
