@@ -1,0 +1,82 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: YIKES Easy Forms for MailChimp - EU Compliance "
+"Extension \n"
+"POT-Creation-Date: 2015-09-18 14:39-0400\n"
+"PO-Revision-Date: 2015-09-18 11:33-0400\n"
+"Last-Translator: Evan <Evan@yikesinc.com>\n"
+"Language-Team: YIKES Inc. <http://www.yikesinc.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.4\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e;_n;esc_attr_e\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ../.\n"
+"X-Poedit-SearchPathExcluded-0: ../node_modules\n"
+
+#: .././yikes-inc-easy-mailchimp-eu-law-compliance.php:57
+msgid ""
+"Easy MailChimp EU Law Compliance Extension by Yikes Inc. could not be "
+"activated because the base plugin is not installed and active."
+msgstr ""
+
+#: .././yikes-inc-easy-mailchimp-eu-law-compliance.php:58
+#, php-format
+msgid "Please install and activate %s before activating this extension."
+msgstr ""
+
+#: .././yikes-inc-easy-mailchimp-eu-law-compliance.php:119
+#: .././yikes-inc-easy-mailchimp-eu-law-compliance.php:131
+msgid "EU Law Compliance"
+msgstr ""
+
+#: .././yikes-inc-easy-mailchimp-eu-law-compliance.php:132
+msgid ""
+"A check box will display below your form asking new users to confirm "
+"addition to your mailing list."
+msgstr ""
+
+#: .././yikes-inc-easy-mailchimp-eu-law-compliance.php:135
+msgid "Pre-check Compliance Checkbox"
+msgstr ""
+
+#: .././yikes-inc-easy-mailchimp-eu-law-compliance.php:138
+msgid "Yes"
+msgstr ""
+
+#: .././yikes-inc-easy-mailchimp-eu-law-compliance.php:139
+msgid "No"
+msgstr ""
+
+#: .././yikes-inc-easy-mailchimp-eu-law-compliance.php:142
+msgid "Should this check box be pre-checked on initial page load?."
+msgstr ""
+
+#: .././yikes-inc-easy-mailchimp-eu-law-compliance.php:145
+msgid "Compliance Checkbox Text"
+msgstr ""
+
+#: .././yikes-inc-easy-mailchimp-eu-law-compliance.php:148
+#, php-format
+msgid "Please check the checkbox to ensure that you comply with the %s."
+msgstr ""
+
+#: .././yikes-inc-easy-mailchimp-eu-law-compliance.php:148
+msgid "Europen Optin Laws"
+msgstr ""
+
+#: .././yikes-inc-easy-mailchimp-eu-law-compliance.php:148
+msgid "EU Laws"
+msgstr ""
+
+#: .././yikes-inc-easy-mailchimp-eu-law-compliance.php:149
+msgid "Add custom label text for this check box."
+msgstr ""
+
+#~ msgid "If"
+#~ msgstr "Si se"

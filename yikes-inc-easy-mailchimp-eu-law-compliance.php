@@ -1,38 +1,49 @@
 <?php
 /**
- * The plugin bootstrap file
+ * 		Plugin Name:       	Easy MailChimp EU Law Compliance Extension by Yikes Inc.
+ * 		Plugin URI:       		http://www.yikesinc.com
+ * 		Description:       	This extension adds a checkbox to all of your MailChimp forms to ensure you are following the EU laws.
+ * 		Version:          	 	0.1
+ * 		Author:            		Yikes Inc.
+ * 		Author URI:        	http://www.yikesinc.com
+ * 		License:          	 	GPL-2.0+
+ * 		License URI:       	http://www.gnu.org/licenses/gpl-2.0.txt
+ * 		Text Domain:       	yikes-inc-easy-mailchimp-eu-law-compliance
+ * 		Domain Path:       	/languages
+ *		
+ * 		YIKES Easy Forms for MailChimp EU Law Compliance Extension is free software: you can redistribute it and/or modify
+ * 		it under the terms of the GNU General Public License as published by
+ * 		the Free Software Foundation, either version 2 of the License, or
+ * 		any later version.
  *
- * This file is read by WordPress to generate the plugin information in the plugin
- * admin area. This file also includes all of the dependencies used by the plugin,
- * registers the activation and deactivation functions, and defines a function
- * that starts the plugin.
+ * 		YIKES Easy Forms for MailChimp EU Law Compliance Extension  is distributed in the hope that it will be useful,
+ * 		but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * 		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * 		GNU General Public License for more details.
  *
- * @link              http://www.yikesinc.com
- * @since             0.1
- * @package           Yikes_Inc_Easy_EU_Law_Compliance_Extension
+ * 		You should have received a copy of the GNU General Public License
+ *		along with Easy Forms for MailChimp. If not, see <http://www.gnu.org/licenses/>.
  *
- * @wordpress-plugin
- * Plugin Name:       Easy MailChimp EU Law Compliance Extension by Yikes Inc.
- * Plugin URI:        http://www.yikesinc.com
- * Description:       This extension adds a checkbox to all of your MailChimp forms to ensure you are following the EU laws.
- * Version:           0.1
- * Author:            Yikes Inc.
- * Author URI:        http://www.yikesinc.com
- * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       yikes-inc-easy-mailchimp-eu-law-compliance
- * Domain Path:       /languages
- */
+ *		We at Yikes Inc. embrace the open source philosophy on a daily basis. We donate company time back to the WordPress project,
+ *		and constantly strive to improve the WordPress project and community as a whole. We eat, sleep and breath WordPress.
+ *
+ *		"'Free software' is a matter of liberty, not price. To understand the concept, you should think of 'free' as in 'free speech,' not as in 'free beer'."
+ *		- Richard Stallman
+ *
+**/
+
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
+
 // must include plugin.php to use is_plugin_active()
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-if ( !is_plugin_active( 'yikes-inc-easy-mailchimp-extender/yikes-inc-easy-mailchimp-extender.php' ) ) {
+if ( ! is_plugin_active( 'yikes-inc-easy-mailchimp-extender/yikes-inc-easy-mailchimp-extender.php' ) ) {
 	deactivate_plugins( '/yikes-inc-easy-mailchimp-eu-law-compliance/yikes-inc-easy-mailchimp-eu-law-compliance.php' );
 	add_action( 'admin_notices' , 'yikes_inc_mailchimp_eu_law_compliance_display_activation_error' );
 }
+
 function yikes_inc_mailchimp_eu_law_compliance_display_activation_error() {
 	?>	
 		<!-- hide the 'Plugin Activated' default message -->
@@ -134,8 +145,8 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 						'label' => __( 'Compliance Checkbox Text' , 'yikes-inc-easy-mailchimp-eu-law-compliance-extension' ), // label text for this field
 						'type' => 'wysiwyg', // type of field (text,select,checkbox,radio)
 						'id' => 'eu-compliance-law-checkbox-text', // field id - determines how data is saved in database
-						'default' => 'Please check the checkbox to ensure that you comply with the <a href="' . esc_url( 'http://www.lsoft.com/resources/optinlaws.asp' ). '" title="' . __( 'Optin Europe Laws' , 'yikes-inc-easy-mailchimp-eu-law-compliance-extension' ) . '" target="_blank">' . __( 'EU Laws' , 'yikes-inc-easy-mailchimp-eu-law-compliance/yikes-inc-easy-mailchimp-eu-law-compliance' ) . '</a>.',
-						'description' => __( 'Add custom message to the right of the check box.' , 'yikes-inc-easy-mailchimp-eu-law-compliance-extension' ), // field description  
+						'default' => sprintf( __( 'Please check the checkbox to ensure that you comply with the %s.' ), '<a href="' . esc_url( 'http://www.lsoft.com/resources/optinlaws.asp' ). '" title="' . __( 'Europen Optin Laws' , 'yikes-inc-easy-mailchimp-eu-law-compliance-extension' ) . '" target="_blank">' . __( 'EU Laws' , 'yikes-inc-easy-mailchimp-eu-law-compliance/yikes-inc-easy-mailchimp-eu-law-compliance' ) . '</a>' ),
+						'description' => __( 'Add custom label text for this check box.' , 'yikes-inc-easy-mailchimp-eu-law-compliance-extension' ), // field description  
 					),
 				),
 			) );
@@ -152,7 +163,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 */
 add_action( 'plugins_loaded' , 'load_eu_compliance_law_extension' );
 function load_eu_compliance_law_extension() {	
-	if( class_exists( 'Yikes_Inc_Easy_Mailchimp_Extender_Admin' ) ) {
+	if( class_exists( 'Yikes_Inc_Easy_Mailchimp_Forms_Admin' ) ) {
 		new Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension;
 	}
 }
