@@ -3,7 +3,7 @@
  * 		Plugin Name:       	Easy Forms for MailChimp EU Law Compliance Extension by YIKES
  * 		Plugin URI:       		http://www.yikesinc.com
  * 		Description:       	This extension adds a checkbox to all of your MailChimp forms to ensure you are following the EU laws.
- * 		Version:          	 	0.1
+ * 		Version:          	 	1.0
  * 		Author:            		Yikes Inc.
  * 		Author URI:        	http://www.yikesinc.com
  * 		License:          	 	GPL-2.0+
