@@ -40,8 +40,9 @@ if ( ! defined( 'WPINC' ) ) {
 // must include plugin.php to use is_plugin_active()
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 if ( ! is_plugin_active( 'yikes-inc-easy-mailchimp-extender/yikes-inc-easy-mailchimp-extender.php' ) ) {
-	deactivate_plugins( '/yikes-inc-easy-mailchimp-eu-law-compliance/yikes-inc-easy-mailchimp-eu-law-compliance.php' );
+	deactivate_plugins( plugin_basename( __FILE__ ) );
 	add_action( 'admin_notices' , 'yikes_inc_mailchimp_eu_law_compliance_display_activation_error' );
+	return;
 }
 
 function yikes_inc_mailchimp_eu_law_compliance_display_activation_error() {
