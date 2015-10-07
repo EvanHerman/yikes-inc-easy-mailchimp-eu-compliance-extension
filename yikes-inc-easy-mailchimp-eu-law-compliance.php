@@ -55,8 +55,8 @@ function yikes_inc_mailchimp_eu_law_compliance_display_activation_error() {
 		</style>
 		<!-- display our error message -->
 		<div class="error">
-			<p><?php _e( 'Easy MailChimp EU Law Compliance Extension by Yikes Inc. could not be activated because the base plugin is not installed and active.', 'yikes-inc-easy-mailchimp-customizer-extension' ); ?></p>
-			<p><?php printf( __( 'Please install and activate %s before activating this extension.', 'yikes-inc-easy-mailchimp-customizer-extension' ) , '<a href="' . esc_url_raw( admin_url( 'plugin-install.php?tab=search&type=term&s=Yikes+Inc.+Easy+MailChimp+Forms' ) ) . '" title="Yikes Inc. Easy MailChimp Forms">Yikes Inc. Easy MailChimp Forms</a>' ); ?></p>
+			<p><?php _e( 'Easy Forms for MailChimp EU Law Compliance Extension by YIKES could not be activated because the base plugin is not installed and active.', 'yikes-inc-easy-mailchimp-customizer-extension' ); ?></p>
+			<p><?php printf( __( 'Please install and activate %s before activating this extension.', 'yikes-inc-easy-mailchimp-customizer-extension' ) , '<a href="' . esc_url_raw( admin_url( 'plugin-install.php?tab=search&type=term&s=Yikes+Inc.+Easy+MailChimp+Forms' ) ) . '" title="Easy Forms for MailChimp by YIKES">Easy Forms for MailChimp by YIKES</a>' ); ?></p>
 		</div>
 	<?php
 }	
