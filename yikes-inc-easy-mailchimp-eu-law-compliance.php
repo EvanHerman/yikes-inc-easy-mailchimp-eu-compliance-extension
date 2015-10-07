@@ -104,7 +104,10 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 	*/
 	public function render_frontend_compliance_checkbox( $form_data ) {
 		$custom_field_data = json_decode( $form_data['custom_fields'], true );
-		echo '<label class="yikes-mailchimp-eu-compliance-label">' . apply_filters( 'the_content', '<input type="checkbox" required="required" name="eu-laws" value="1" '. checked( $custom_field_data['eu-compliance-law-checkbox-precheck'], 1, false ) .'> ' . $custom_field_data['eu-compliance-law-checkbox-text'] ) . '</label>';
+		$prechecked = ( isset( $custom_field_data['eu-compliance-law-checkbox-precheck'] ) ) ? $custom_field_data['eu-compliance-law-checkbox-precheck'] : 0;
+		$checkbox_text = ( isset( $custom_field_data['eu-compliance-law-checkbox-text'] ) ) ? $custom_field_data['eu-compliance-law-checkbox-text'] : sprintf( __( 'Please check the checkbox to ensure that you comply with the <a title="Europen Optin Laws" href="%s" target="_blank">EU Laws</a>.', 'yikes-inc-easy-mailchimp-customizer-extension' ), esc_url( 'http://www.lsoft.com/resources/optinlaws.asp' ) );
+		$checked = ( $prechecked == 1 ) ? 'checked="checked"' : '';
+		echo '<label class="yikes-mailchimp-eu-compliance-label"><input type="checkbox" required="required" name="eu-laws" value="1"> ' . $checkbox_text . '</label>';
 	}
 	
 	/*
