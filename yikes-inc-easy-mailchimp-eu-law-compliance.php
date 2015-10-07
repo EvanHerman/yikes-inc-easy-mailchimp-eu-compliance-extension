@@ -4,7 +4,7 @@
  * 		Plugin URI:       		http://www.yikesinc.com
  * 		Description:       	This extension adds a checkbox to all of your MailChimp forms to ensure you are following the EU laws.
  * 		Version:          	 	1.0
- * 		Author:            		Yikes Inc.
+ * 		Author:            		YIKES
  * 		Author URI:        	http://www.yikesinc.com
  * 		License:          	 	GPL-2.0+
  * 		License URI:       	http://www.gnu.org/licenses/gpl-2.0.txt
