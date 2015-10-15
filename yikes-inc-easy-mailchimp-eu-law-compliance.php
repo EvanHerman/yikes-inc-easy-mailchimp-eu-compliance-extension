@@ -55,8 +55,8 @@ function yikes_inc_mailchimp_eu_law_compliance_display_activation_error() {
 		</style>
 		<!-- display our error message -->
 		<div class="error">
-			<p><?php _e( 'Easy Forms for MailChimp EU Law Compliance Extension by YIKES could not be activated because the base plugin is not installed and active.', 'yikes-inc-easy-mailchimp-customizer-extension' ); ?></p>
-			<p><?php printf( __( 'Please install and activate %s before activating this extension.', 'yikes-inc-easy-mailchimp-customizer-extension' ) , '<a href="' . esc_url_raw( admin_url( 'plugin-install.php?tab=search&type=term&s=Yikes+Inc.+Easy+MailChimp+Forms' ) ) . '" title="Easy Forms for MailChimp by YIKES">Easy Forms for MailChimp by YIKES</a>' ); ?></p>
+			<p><?php _e( 'Easy Forms for MailChimp EU Law Compliance Extension by YIKES could not be activated because the base plugin is not installed and active.', 'yikes-inc-easy-mailchimp-eu-law-compliance' ); ?></p>
+			<p><?php printf( __( 'Please install and activate %s before activating this extension.', 'yikes-inc-easy-mailchimp-eu-law-compliance' ) , '<a href="' . esc_url_raw( admin_url( 'plugin-install.php?tab=search&type=term&s=Yikes+Inc.+Easy+MailChimp+Forms' ) ) . '" title="Easy Forms for MailChimp by YIKES">Easy Forms for MailChimp by YIKES</a>' ); ?></p>
 		</div>
 	<?php
 }	
@@ -77,6 +77,8 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 		add_action( 'yikes-mailchimp-shortcode-enqueue-scripts-styles' , array( $this, 'enqueue_yikes_mailchimp_eu_compliance_frontend_styles' ) );
 		// render our checkbox after the form
 		add_action( 'yikes-mailchimp-additional-form-fields' , array( $this, 'render_frontend_compliance_checkbox' ) );
+		// set the locale
+		$this->set_locale();
 	}		
 	
 	/* 
@@ -105,7 +107,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 	public function render_frontend_compliance_checkbox( $form_data ) {
 		$custom_field_data = json_decode( $form_data['custom_fields'], true );
 		$prechecked = ( isset( $custom_field_data['eu-compliance-law-checkbox-precheck'] ) ) ? $custom_field_data['eu-compliance-law-checkbox-precheck'] : 0;
-		$checkbox_text = ( isset( $custom_field_data['eu-compliance-law-checkbox-text'] ) ) ? $custom_field_data['eu-compliance-law-checkbox-text'] : sprintf( __( 'Please check the checkbox to ensure that you comply with the <a title="Europen Optin Laws" href="%s" target="_blank">EU Laws</a>.', 'yikes-inc-easy-mailchimp-customizer-extension' ), esc_url( 'http://www.lsoft.com/resources/optinlaws.asp' ) );
+		$checkbox_text = ( isset( $custom_field_data['eu-compliance-law-checkbox-text'] ) ) ? $custom_field_data['eu-compliance-law-checkbox-text'] : sprintf( __( 'Please check the checkbox to ensure that you comply with the <a title="Europen Optin Laws" href="%s" target="_blank">EU Laws</a>.', 'yikes-inc-easy-mailchimp-eu-law-compliance' ), esc_url( 'http://www.lsoft.com/resources/optinlaws.asp' ) );
 		$checked = ( $prechecked == 1 ) ? 'checked="checked"' : '';
 		echo '<label class="yikes-mailchimp-eu-compliance-label"><input type="checkbox" required="required" name="eu-laws" value="1"> ' . $checkbox_text . '</label>';
 	}
@@ -155,10 +157,30 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 				),
 			) );
 		}
-					
+		
 	/*
 	*	End additional sections & fields
 	*/
+	
+	/**
+	 * Define the locale for this plugin for internationalization.
+	 *
+	 * Uses the Yikes_Inc_Easy_Mailchimp_Extender_i18n class in order to set the domain and to register the hook
+	 * with WordPress.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function set_locale() {
+		/**
+		 * The class responsible for defining internationalization functionality
+		 * of the plugin.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-yikes-inc-easy-mailchimp-eu-compliance-i18n.php';
+		$eu_compliance_i18n = new Yikes_Inc_Easy_Mailchimp_EU_Compliance_i18n();
+		$eu_compliance_i18n->set_domain( $this->get_yikes_inc_easy_mailchimp_extender() );
+		$this->loader->add_action( 'plugins_loaded', $eu_compliance_i18n, 'load_eu_compliance_text_domain' );
+	}
 	
 }
 
