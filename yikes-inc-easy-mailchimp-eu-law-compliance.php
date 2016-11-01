@@ -181,10 +181,12 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-yikes-inc-easy-mailchimp-eu-compliance-i18n.php';
+		require_once dirname( __FILE__ ) . '/includes/class-yikes-inc-easy-mailchimp-eu-compliance-i18n.php';
 		$eu_compliance_i18n = new Yikes_Inc_Easy_Mailchimp_EU_Compliance_i18n();
-		$eu_compliance_i18n->set_domain( $this->get_yikes_inc_easy_mailchimp_extender() );
-		$this->loader->add_action( 'plugins_loaded', $eu_compliance_i18n, 'load_eu_compliance_text_domain' );
+		//This should use the get_yikes_inc_easy_mailchimp_extender() method from the base Mailchimp plugin like:
+		//$eu_compliance_i18n->set_domain( $this->get_yikes_inc_easy_mailchimp_extender() );
+		$eu_compliance_i18n->set_domain( 'yikes-inc-easy-mailchimp-extender' ); 
+		add_action( 'plugins_loaded', array( $eu_compliance_i18n, 'load_eu_compliance_text_domain') );
 	}
 	
 }
