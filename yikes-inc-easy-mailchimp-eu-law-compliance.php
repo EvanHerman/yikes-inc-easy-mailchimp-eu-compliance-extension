@@ -1,12 +1,12 @@
 <?php
 /**
  * 		Plugin Name:       	Easy Forms for MailChimp EU Law Compliance Extension by YIKES
- * 		Plugin URI:       		http://www.yikesinc.com
+ * 		Plugin URI:       	http://www.yikesinc.com
  * 		Description:       	This extension adds a checkbox to all of your MailChimp forms to ensure you are following the EU laws.
- * 		Version:          	 	1.0
- * 		Author:            		YIKES
+ * 		Version:          	1.1
+ * 		Author:            	YIKES
  * 		Author URI:        	http://www.yikesinc.com
- * 		License:          	 	GPL-2.0+
+ * 		License:          	GPL-2.0+
  * 		License URI:       	http://www.gnu.org/licenses/gpl-2.0.txt
  * 		Text Domain:       	yikes-inc-easy-mailchimp-eu-law-compliance
  * 		Domain Path:       	/languages
@@ -105,11 +105,16 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 	*	@since 0.1
 	*/
 	public function render_frontend_compliance_checkbox( $form_data ) {
-		$custom_field_data = json_decode( $form_data['custom_fields'], true );
+		$custom_field_data = array();
+		if ( is_string( $form_data['custom_fields'] ) ) {
+			$custom_field_data = json_decode( $form_data['custom_fields'], true );
+		} else if ( is_array( $form_data['custom_fields'] ) ) {
+			$custom_field_data = $form_data['custom_fields'];
+		}
 		$prechecked = ( isset( $custom_field_data['eu-compliance-law-checkbox-precheck'] ) ) ? $custom_field_data['eu-compliance-law-checkbox-precheck'] : 0;
 		$checkbox_text = ( isset( $custom_field_data['eu-compliance-law-checkbox-text'] ) ) ? $custom_field_data['eu-compliance-law-checkbox-text'] : sprintf( __( 'Please check the checkbox to ensure that you comply with the <a title="Europen Optin Laws" href="%s" target="_blank">EU Laws</a>.', 'yikes-inc-easy-mailchimp-eu-law-compliance' ), esc_url( 'http://www.lsoft.com/resources/optinlaws.asp' ) );
 		$checked = ( $prechecked == 1 ) ? 'checked="checked"' : '';
-		echo '<label class="yikes-mailchimp-eu-compliance-label"><input type="checkbox" required="required" name="eu-laws" value="1"> ' . $checkbox_text . '</label>';
+		echo '<label class="yikes-mailchimp-eu-compliance-label"><input type="checkbox" required="required" name="eu-laws" value="1" ' . $checked . '> ' . $checkbox_text . '</label>';
 	}
 	
 	/*

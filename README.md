@@ -20,3 +20,13 @@ All of the MailChimp forms on your site will then contain a check box below them
 3. Go to Plugins > Add New > Upload Plugin and upload the .zip
 4. Either begin using with the default settings or head into the 'Edit Form' page and select the 'EU Law Compliance' tab at the top to customize the checkbox text and precheck state. 
 5. Profit
+
+#### Changelog
+
+<strong>v1.1</strong>
+* Updated the plugin to stay in sync with the base MailChimp plugin's latest release
+* The pre-checked checkbox functionality now works as expected
+* Incremented the version number
+
+<strong>v1.0</strong>
+* Initial release
