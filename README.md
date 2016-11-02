@@ -1,4 +1,4 @@
-# YIKES Easy Forms for MailChimp - EU Law Compliance Extension
+#  Zip Lookup for MailChimp
 
 This addon extends the base plugin, [Easy Forms for MailChimp by YIKES](https://github.com/yikesinc/yikes-inc-easy-mailchimp-extender/tree/staging), by creating an additional section to the manage forms page called 'EU Law Compliance'. 
 
