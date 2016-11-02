@@ -1,8 +1,8 @@
 <?php
 /**
- * 		Plugin Name:       	Easy Forms for MailChimp EU Law Compliance Extension by YIKES
+ * 		Plugin Name:       	MailChimp EU Opt-In Compliance
  * 		Plugin URI:       	http://www.yikesinc.com
- * 		Description:       	This extension adds a checkbox to all of your MailChimp forms to ensure you are following the EU laws.
+ * 		Description:       	This add-on extends Easy Forms for MailChimp to allow MailChimp forms to comply with the EU Opt-In Directive.
  * 		Version:          	1.1.1
  * 		Author:            	YIKES
  * 		Author URI:        	http://www.yikesinc.com
@@ -11,12 +11,12 @@
  * 		Text Domain:       	yikes-inc-easy-mailchimp-eu-law-compliance-extension
  * 		Domain Path:       	/languages
  *		
- * 		YIKES Easy Forms for MailChimp EU Law Compliance Extension is free software: you can redistribute it and/or modify
+ * 		MailChimp EU Opt-In Compliance is free software: you can redistribute it and/or modify
  * 		it under the terms of the GNU General Public License as published by
  * 		the Free Software Foundation, either version 2 of the License, or
  * 		any later version.
  *
- * 		YIKES Easy Forms for MailChimp EU Law Compliance Extension  is distributed in the hope that it will be useful,
+ * 		MailChimp EU Opt-In Compliance is distributed in the hope that it will be useful,
  * 		but WITHOUT ANY WARRANTY; without even the implied warranty of
  * 		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * 		GNU General Public License for more details.
@@ -55,8 +55,8 @@ function yikes_inc_mailchimp_eu_law_compliance_display_activation_error() {
 		</style>
 		<!-- display our error message -->
 		<div class="error">
-			<p><?php _e( 'Easy Forms for MailChimp EU Law Compliance Extension by YIKES could not be activated because the base plugin is not installed and active.', 'yikes-inc-easy-mailchimp-eu-law-compliance-extension' ); ?></p>
-			<p><?php printf( __( 'Please install and activate %s before activating this extension.', 'yikes-inc-easy-mailchimp-eu-law-compliance-extension' ) , '<a href="' . esc_url_raw( admin_url( 'plugin-install.php?tab=search&type=term&s=Yikes+Inc.+Easy+MailChimp+Forms' ) ) . '" title="Easy Forms for MailChimp by YIKES">Easy Forms for MailChimp by YIKES</a>' ); ?></p>
+			<p><?php _e( 'MailChimp EU Opt-In Compliance could not be activated because the base plugin is not installed and active.', 'yikes-inc-easy-mailchimp-eu-law-compliance-extension' ); ?></p>
+			<p><?php printf( __( 'Please install and activate %s before activating this extension.', 'yikes-inc-easy-mailchimp-eu-law-compliance-extension' ) , '<a href="' . esc_url_raw( admin_url( 'plugin-install.php?tab=search&type=term&s=Yikes+Inc.+Easy+MailChimp+Forms' ) ) . '" title="Easy Forms for MailChimp">Easy Forms for MailChimp</a>' ); ?></p>
 		</div>
 	<?php
 }	
