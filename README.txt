@@ -4,7 +4,7 @@ Donate link: http://www.yikesinc.com
 Tags: comments, Yikes MailChimp, EU, Compliance, Law
 Requires at least: 3.5
 Tested up to: 4.3.1
-Stable tag: 1.1
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,9 +31,19 @@ All of the MailChimp forms on your site will then contain a check box below them
 
 == Changelog ==
 
-= YIKES MailChimp EU Compliance 1.0 =
-* Initial Release
+= YIKES MailChimp EU Compliance 1.1.1 =
+* Fixed i18n errors in prior commit
+* Updated the text domain to yikes-inc-easy-mailchimp-eu-law-compliance-extension
+* Generated new .pot file
+* Renamed main plugin file to yikes-inc-easy-mailchimp-eu-law-compliance-extension.php for consistency with other Yikes MailChimp add-on plugins
+* Refactored the uninstall method so it's using the options array instead of custom DB table
+* Added assets folder and screenshots
+* Incremented version number
 
 = YIKES MailChimp EU Compliance 1.1 =
 * Changes to keep this add-on in sync with the base Yikes MailChimp plugin
 * Changes to put this plugin on the official WordPress.org plugin repo
+
+= YIKES MailChimp EU Compliance 1.0 =
+* Initial Release
+

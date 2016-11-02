@@ -1,6 +1,6 @@
 {
   "name": "yikes-inc-easy-mailchimp-eu-law-compliance",
-  "version": "1.1",
+  "version": "1.1.1",
   "description": "Add an opt-in checkbox for email forms to comply with the corresponding EU directive.",
   "author": "Yikes Inc.",
   "license": "GPLv2",

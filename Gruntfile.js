@@ -5,7 +5,7 @@ module.exports = function( grunt ) {
 		// generates POT file
 		pot: {
 			options: {
-				text_domain: 'yikes-inc-easy-mailchimp-eu-law-compliance',
+				text_domain: 'yikes-inc-easy-mailchimp-eu-law-compliance-extension',
 				dest: 'languages/', //directory to place the pot file
 		        keywords: [ //WordPress localisation functions (functionname:#arguments)
 		        	'__:1',

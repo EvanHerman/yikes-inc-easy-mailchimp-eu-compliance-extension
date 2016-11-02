@@ -17,7 +17,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Compliance_Extension_Uninstaller {
 			switch_to_blog( $old_blog );
 			return;
 		}
-		self::_uninstall_yikes_easy_mailchimp( $wpdb );
+		self::_uninstall_yikes_easy_mailchimp( );
 	}
 	
 	/**
@@ -27,23 +27,21 @@ class Yikes_Inc_Easy_Mailchimp_EU_Compliance_Extension_Uninstaller {
 	 *
 	 * @since    0.1
 	 */
-	static function _uninstall_yikes_easy_mailchimp( $wpdb ) {
+	static function _uninstall_yikes_easy_mailchimp( ) {
 		require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-		/* Clean up and delete our custom table from the databse */
-		$mc_forms = $wpdb->get_results( 'SELECT * FROM ' . $wpdb->prefix . 'yikes_easy_mc_forms', ARRAY_A );
-		foreach( $mc_forms as $mailchimp_form ) {
-			// parse the array
-			$custom_fields = json_decode( $mailchimp_form['custom_fields'], true );
-			// delete the two eu-compliance fields out of our custom_fields array
-			unset( $custom_fields['eu-compliance-law-checkbox-text'], $custom_fields['eu-compliance-law-checkbox-precheck'] );
-			$wpdb->update( 
-				$wpdb->prefix . 'yikes_easy_mc_forms',
-				array( 
-					'custom_fields' => json_encode( $custom_fields ), // re-encode the array for saving
-				),
-				array( 'ID' => $mailchimp_form['id'] )
+		/* Clean up and delete our eu compliance fields from the yikes_easy_mailchimp_extender_forms options array */
+		$mc_forms = get_option( 'yikes_easy_mailchimp_extender_forms' );
+
+		foreach( $mc_forms as $form_id => $mailchimp_form ) {
+			//unset the two eu-compliance related custom fields
+			unset(
+				$mc_forms[$form_id]['custom_fields']['eu-compliance-law-checkbox-text'], 
+				$mc_forms[$form_id]['custom_fields']['eu-compliance-law-checkbox-precheck']
 			);
 		}
+		//update options
+		update_option( 'yikes_easy_mailchimp_extender_forms', $mc_forms );
+
 		return;
 	}
 	
