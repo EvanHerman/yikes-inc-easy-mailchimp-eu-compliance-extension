@@ -1,4 +1,4 @@
-=== YIKES Easy Forms for MailChimp EU Compliance Extension ===
+=== MailChimp EU Opt-In Compliance ===
 Contributors: yikesinc, eherman24, liljimmi, yikesitskevin
 Donate link: http://www.yikesinc.com
 Tags: MailChimp, Yikes MailChimp, EU, Compliance, Law, Opt-in
@@ -8,13 +8,15 @@ Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This addon extends Easy Forms for MailChimp by YIKES by creating an additional section to the manage forms page called 'EU Law Compliance.'
+This add-on extends Easy Forms for MailChimp to allow MailChimp forms to comply with the EU Opt-In Directive
 
 == Description == 
 
-This addon extends Easy Forms for MailChimp by YIKES by creating an additional section to the manage forms page called 'EU Law Compliance.'
+This addon extends Easy Forms for MailChimp by creating an additional section on the form builder called 'EU Law Compliance.' There you can manage a checkbox that will make your form compliant with The EU Opt-In Directive (Directive 2002/58/EC, Directive 2003/58/EC) which covers all direct email marketing messages, including charitable and political messages.
 
-Below all of the MailChimp forms on your site there will be a check box accompanied by some customizable text. This is required to ensure your site complies with EU laws.
+Below all of the MailChimp forms on your site there will be a check box accompanied by some customizable text. 
+
+> Note: This add-on plugin requires [Easy Forms for MailChimp](https://wordpress.org/plugins/yikes-inc-easy-mailchimp-extender/) to work.
 
 == Installation ==
 
@@ -23,6 +25,16 @@ Below all of the MailChimp forms on your site there will be a check box accompan
 3. On the following screen, click the "Upload Plugin" button.
 4. Browse your computer to where you downloaded the plugin .zip file, select it and click the "Install Now" button.
 5. After the plugin has successfully installed, click "Activate Plugin" and enjoy!
+
+== Frequently Asked Questions ==
+
+**All documentation can be found in [our Knowledge Base](https://yikesplugins.com/support/knowledge-base/eu-compliance-for-easy-forms-for-mailchimp/).**
+
+= Do I need a another plugin for this to work? =
+Yes, this plugin is an add-on to [Easy Forms for MailChimp](https://wordpress.org/plugins/yikes-inc-easy-mailchimp-extender/).
+
+= How do I change the opt-in text? =
+After installing and activating the plugin, you will find a new section on the Form Builder screen called "EU Law Compliance." There you can customize the opt-in checkbox text.
 
 == Screenshots ==
 
