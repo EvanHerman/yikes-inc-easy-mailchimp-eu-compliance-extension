@@ -2,7 +2,7 @@
 
 This addon extends the base plugin, [Easy Forms for MailChimp by YIKES](https://github.com/yikesinc/yikes-inc-easy-mailchimp-extender/tree/staging), by creating an additional section to the manage forms page called 'EU Law Compliance'. 
 
-All of the MailChimp forms on your site will then contain a check box below them which is required to ensure your site complies with EU laws.
+All of the MailChimp forms on your site will then contain a check box below them which will assist you in making your forms compliant with EU laws.
 
 ## Preview Screenshots:
 

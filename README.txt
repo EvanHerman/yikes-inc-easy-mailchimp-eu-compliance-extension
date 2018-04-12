@@ -12,7 +12,7 @@ This add-on extends Easy Forms for MailChimp to allow MailChimp forms to comply 
 
 == Description == 
 
-This addon extends Easy Forms for MailChimp by creating an additional section on the form builder called 'EU Law Compliance.' There you can manage a checkbox that will make your form compliant with The EU Opt-In Directive (Directive 2002/58/EC, Directive 2003/58/EC) which covers all direct email marketing messages, including charitable and political messages.
+This addon extends Easy Forms for MailChimp by creating an additional section on the form builder called 'EU Law Compliance.' There you can manage a checkbox that will assist with making your form compliant with The EU Opt-In Directive (Directive 2002/58/EC, Directive 2003/58/EC) which covers all direct email marketing messages, including charitable and political messages.
 
 Below all of the MailChimp forms on your site there will be a check box accompanied by some customizable text. 
 
