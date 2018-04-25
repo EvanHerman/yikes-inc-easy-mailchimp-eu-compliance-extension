@@ -3,8 +3,8 @@ Contributors: yikesinc, eherman24, liljimmi, yikesitskevin
 Donate link: http://www.yikesinc.com
 Tags: MailChimp, Yikes MailChimp, EU, Compliance, Law, Opt-in
 Requires at least: 3.5
-Tested up to: 4.7
-Stable tag: 1.1.2
+Tested up to: 4.9.5
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,10 +43,16 @@ After installing and activating the plugin, you will find a new section on the F
 
 == Changelog ==
 
-- EU Opt-In Compliance for MailChimp 1.1.2 =
+= 1.2.0 =
+* Adding a new checkbox that controls whether your checkbox confirmation language is sent to MailChimp
+* Removed default checkbox confirmation language
+* The checkbox is no longer pre-checked by default
+* Some copy changes
+
+= 1.1.2 =
 * Updating text domain and i18n-related functions to official WP plugin repo name: eu-opt-in-compliance-for-mailchimp
 
-= EU Opt-In Compliance for MailChimp 1.1.1 =
+= 1.1.1 =
 * Fixed i18n errors in prior commit
 * Updated the text domain to yikes-inc-easy-mailchimp-eu-law-compliance-extension
 * Generated new .pot file
@@ -55,10 +61,10 @@ After installing and activating the plugin, you will find a new section on the F
 * Added assets folder and screenshots
 * Incremented version number
 
-= EU Opt-In Compliance for MailChimp 1.1 =
+= 1.1 =
 * Changes to keep this add-on in sync with the base Yikes MailChimp plugin
 * Changes to put this plugin on the official WordPress.org plugin repo
 
-= EU Opt-In Compliance for MailChimp 1.0 =
+= 1.0 =
 * Initial Release
 
