@@ -81,7 +81,6 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 		add_action( 'yikes-mailchimp-shortcode-enqueue-scripts-styles' , array( $this, 'enqueue_yikes_mailchimp_eu_compliance_frontend_styles' ) );
 
 		// render our checkbox after the form
-		add_action( 'yikes-mailchimp-additional-form-fields' , array( $this, 'render_frontend_compliance_checkbox' ) );
 
 		// Add the WYSIWYG text as a note on the user's form submission
 		add_filter( 'yikes-mailchimp-form-submission', array( $this, 'submit_checkbox_compliance_merge_field' ), 10, 4 );
@@ -187,12 +186,14 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 	*	@since 0.1
 	*/
 	public function render_frontend_compliance_checkbox( $form_data ) {
-		$custom_field_data = $this->get_custom_field_data( $form_data );
-
 		$prechecked    = isset( $custom_field_data['eu-compliance-law-checkbox-precheck'] ) ? $custom_field_data['eu-compliance-law-checkbox-precheck'] : 0;
 		$checkbox_text = isset( $custom_field_data['eu-compliance-law-checkbox-text'] ) ? $custom_field_data['eu-compliance-law-checkbox-text'] : '';
+
+		// `the_content` filter is breaking the customizer 
+		$checkbox_text = ! is_customize_preview() ? apply_filters( 'the_content', $checkbox_text ) : $checkbox_text; 
+
 		$checked       = $prechecked === '1' ? 'checked="checked"' : '';
-		echo '<label class="yikes-mailchimp-eu-compliance-label"><input type="checkbox" required="required" name="eu-laws" value="1" ' . $checked . '> <div class="yikes-mailchimp-eu-compliance-text">' . apply_filters( 'the_content', $checkbox_text ) . '</div></label>';
+		echo '<label class="yikes-mailchimp-eu-compliance-label"><input type="checkbox" required="required" name="eu-laws" value="1" ' . $checked . '> <div class="yikes-mailchimp-eu-compliance-text">' . $checkbox_text . '</div></label>';
 	}
 	
 	/*
