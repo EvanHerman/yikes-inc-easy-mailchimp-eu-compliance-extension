@@ -81,6 +81,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 		add_action( 'yikes-mailchimp-shortcode-enqueue-scripts-styles' , array( $this, 'enqueue_yikes_mailchimp_eu_compliance_frontend_styles' ) );
 
 		// render our checkbox after the form
+		add_action( 'yikes-mailchimp-additional-form-fields' , array( $this, 'render_frontend_compliance_checkbox' ), 10, 1 );
 
 		// Add the WYSIWYG text as a note on the user's form submission
 		add_filter( 'yikes-mailchimp-form-submission', array( $this, 'submit_checkbox_compliance_merge_field' ), 10, 4 );
