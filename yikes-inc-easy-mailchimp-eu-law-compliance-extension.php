@@ -75,7 +75,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 		add_action( 'yikes-mailchimp-edit-form-sections' , array( $this , 'render_eu_compliance_section' ) );
 
 		// include our scripts & styles on the admin
-		add_action( 'admin_enqueue_scripts' , array( $this, 'enqueue_yikes_mailchimp_eu_compliance_admin_styles' ) );
+		add_action( 'admin_enqueue_scripts' , array( $this, 'enqueue_yikes_mailchimp_eu_compliance_admin_styles_scripts' ) );
 
 		// include our scripts & styles on the frontend
 		add_action( 'yikes-mailchimp-shortcode-enqueue-scripts-styles' , array( $this, 'enqueue_yikes_mailchimp_eu_compliance_frontend_styles' ) );
@@ -153,8 +153,10 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 	*	Enqueue our styles on the dashboard
 	*	@since 0.1
 	*/
-	public function enqueue_yikes_mailchimp_eu_compliance_admin_styles( $hook ) {
-		if( 'admin_page_yikes-mailchimp-edit-form' == $hook ) {
+	public function enqueue_yikes_mailchimp_eu_compliance_admin_styles_scripts( $hook ) {
+
+		if ( 'admin_page_yikes-mailchimp-edit-form' == $hook ) {
+			wp_enqueue_script( 'yikes-mailchimp-character-counter-script' , plugin_dir_url(__FILE__) . 'includes/js/yikes-mailchimp-eu-admin-functions.js', array( 'jquery' ) );
 			wp_enqueue_style( 'yikes-mailchimp-eu-compliance-styles' , plugin_dir_url(__FILE__) . 'includes/css/yikes-mailchimp-eu-law-icons.css' );
 		}
 	}
