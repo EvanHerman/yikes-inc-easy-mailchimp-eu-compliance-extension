@@ -33,7 +33,22 @@
 				});
 			}
 		});
+
+		show_notification_for_opt_in_merge_field();
+		jQuery( 'select[name="custom-field[eu-compliance-law-save-opt-in-field]"]' ).change( function() {
+			show_notification_for_opt_in_merge_field();
+		});
 	});
+
+	function show_notification_for_opt_in_merge_field() {
+
+		jQuery( '.field-used-by-eu-icon' ).remove();
+
+		let field = jQuery( 'select[name="custom-field[eu-compliance-law-save-opt-in-field]"]' ).val();
+		if ( field && jQuery( '.available-form-field[alt="' + field + '"]' ).length === 1 ) {
+			jQuery( '.available-form-field[alt="' + field + '"]' ).append( '<span class="dashicons dashicons-info field-used-by-eu-icon" title="This field is being used to store opt-in compliance."></span>' );
+		}
+	}
 
 	function get_initial_character_count() {
 		return jQuery( '#eu-compliance-law-checkbox-text' ).val().length;
