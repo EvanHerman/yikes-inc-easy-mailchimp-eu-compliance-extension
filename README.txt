@@ -49,7 +49,7 @@ After installing and activating the plugin, you will find a new section on the F
 * Added a new dropdown for saving an opt-in flag as a merge field
 * Added a new text field for entering your opt-in flag value
 * Added a character counter to the checkbox confirmation language field because MailChimp will limit each note to 1,000 characters.
-* Removed default checkbox confirmation language
+* Changed default checkbox confirmation language
 * Changed the checkbox so it is no longer pre-checked by default
 * Some copy changes
 
