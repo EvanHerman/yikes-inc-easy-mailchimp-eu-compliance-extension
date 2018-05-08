@@ -6,8 +6,8 @@ module.exports = function( grunt ) {
 		pot: {
 			options: {
 				text_domain: 'eu-opt-in-compliance-for-mailchimp',
-				dest: 'languages/', //directory to place the pot file
-		        keywords: [ //WordPress localisation functions (functionname:#arguments)
+				dest: 'languages/', // Directory to place the pot file
+		        keywords: [ // WordPress localisation functions (functionname:#arguments)
 		        	'__:1',
 		        	'_e:1',
 					'_x:1,2c',
@@ -25,17 +25,17 @@ module.exports = function( grunt ) {
 				],
 			},
 			files: {
-				src:  [ '**/*.php' ], //Parse all php files
+				src:  [ '**/*.php' ], // Parse all php files
 				expand: true,
 			}
 		}
 	});
 
 	// load tasks
-	grunt.loadNpmTasks('grunt-pot'); // POT file
+	grunt.loadNpmTasks( 'grunt-pot' ); // POT file
 
 	// register task
-	grunt.registerTask('default', [
+	grunt.registerTask( 'default', [
 		'pot'
 	]);
 };

@@ -163,7 +163,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 			if ( class_exists( 'Yikes_Inc_Easy_Mailchimp_Error_Logging' ) ) {
 				$error_logging = new Yikes_Inc_Easy_Mailchimp_Error_Logging();
 				if ( method_exists( $error_logging, 'maybe_write_to_log' ) ) {
-					$error_logging->maybe_write_to_log( "Method does not exist. Are you using at least v6.4.2 of Easy Forms?", __( "Create member note", 'yikes-inc-easy-mailchimp-incentives-extension' ), 'yikes-inc-easy-mailchimp-eu-law-compliance-extension.php' );
+					$error_logging->maybe_write_to_log( "Method does not exist. Are you using at least v6.4.2 of Easy Forms?", __( "Create member note", 'eu-opt-in-compliance-for-mailchimp' ), 'yikes-inc-easy-mailchimp-eu-law-compliance-extension.php' );
 				}
 			}
 			return;
@@ -176,7 +176,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 		if ( is_wp_error( $note_response ) && class_exists( 'Yikes_Inc_Easy_Mailchimp_Error_Logging' ) ) {
 			$error_logging = new Yikes_Inc_Easy_Mailchimp_Error_Logging();
 			if ( method_exists( $error_logging, 'maybe_write_to_log' ) ) {
-				$error_logging->maybe_write_to_log( $note_response->get_error_code(), __( "Create member note", 'yikes-inc-easy-mailchimp-incentives-extension' ), 'yikes-inc-easy-mailchimp-eu-law-compliance-extension.php' );
+				$error_logging->maybe_write_to_log( $note_response->get_error_code(), __( "Create member note", 'eu-opt-in-compliance-for-mailchimp' ), 'yikes-inc-easy-mailchimp-eu-law-compliance-extension.php' );
 			}
 		}
 	}
