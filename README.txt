@@ -44,9 +44,13 @@ After installing and activating the plugin, you will find a new section on the F
 == Changelog ==
 
 = 1.2.0 =
-* Adding a new checkbox that controls whether your checkbox confirmation language is sent to MailChimp
+* Added a new checkbox that controls whether your checkbox confirmation language is sent to MailChimp
+* Added functionality for adding your checkbox confirmation language as a note on a subscriber's profile
+* Added a new dropdown for saving an opt-in flag as a merge field
+* Added a new text field for entering your opt-in flag value
+* Added a character counter to the checkbox confirmation language field because MailChimp will limit each note to 1,000 characters.
 * Removed default checkbox confirmation language
-* The checkbox is no longer pre-checked by default
+* Changed the checkbox so it is no longer pre-checked by default
 * Some copy changes
 
 = 1.1.2 =
