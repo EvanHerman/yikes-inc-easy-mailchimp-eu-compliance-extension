@@ -60,6 +60,7 @@
 		div.innerHTML = content;
 		let text = div.textContent || div.innerText || "";
 		add_character_count( text.length );
+		$( div ).remove();
 	}
 
 	function add_character_count( char_count ) {

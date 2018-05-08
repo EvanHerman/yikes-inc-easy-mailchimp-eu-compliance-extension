@@ -41,7 +41,7 @@ if ( ! defined( 'WPINC' ) ) {
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 if ( ! is_plugin_active( 'yikes-inc-easy-mailchimp-extender/yikes-inc-easy-mailchimp-extender.php' ) ) {
 	deactivate_plugins( plugin_basename( __FILE__ ) );
-	add_action( 'admin_notices' , 'yikes_inc_mailchimp_eu_law_compliance_display_activation_error' );
+	add_action( 'admin_notices', 'yikes_inc_mailchimp_eu_law_compliance_display_activation_error' );
 	return;
 }
 
@@ -69,19 +69,19 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 	public function __construct() {
 
 		// add our incentives link to the edit form page
-		add_action( 'yikes-mailchimp-edit-form-section-links' , array( $this , 'add_eu_law_compliance_section_links' ) );
+		add_action( 'yikes-mailchimp-edit-form-section-links', array( $this , 'add_eu_law_compliance_section_links' ) );
 
 		// add the incentives section to the edit form page
-		add_action( 'yikes-mailchimp-edit-form-sections' , array( $this , 'render_eu_compliance_section' ) );
+		add_action( 'yikes-mailchimp-edit-form-sections', array( $this , 'render_eu_compliance_section' ) );
 
 		// include our scripts & styles on the admin
-		add_action( 'admin_enqueue_scripts' , array( $this, 'enqueue_yikes_mailchimp_eu_compliance_admin_styles_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_yikes_mailchimp_eu_compliance_admin_styles_scripts' ) );
 
 		// include our scripts & styles on the frontend
-		add_action( 'yikes-mailchimp-shortcode-enqueue-scripts-styles' , array( $this, 'enqueue_yikes_mailchimp_eu_compliance_frontend_styles' ) );
+		add_action( 'yikes-mailchimp-shortcode-enqueue-scripts-styles', array( $this, 'enqueue_yikes_mailchimp_eu_compliance_frontend_styles' ) );
 
 		// render our checkbox after the form
-		add_action( 'yikes-mailchimp-additional-form-fields' , array( $this, 'render_frontend_compliance_checkbox' ), 10, 1 );
+		add_action( 'yikes-mailchimp-additional-form-fields', array( $this, 'render_frontend_compliance_checkbox' ), 10, 1 );
 
 		// Add the WYSIWYG text as a note on the user's form submission
 		add_filter( 'yikes-mailchimp-form-submission', array( $this, 'submit_checkbox_compliance_merge_field' ), 10, 4 );
@@ -188,8 +188,8 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 	public function enqueue_yikes_mailchimp_eu_compliance_admin_styles_scripts( $hook ) {
 
 		if ( 'admin_page_yikes-mailchimp-edit-form' == $hook ) {
-			wp_enqueue_script( 'yikes-mailchimp-character-counter-script' , plugin_dir_url(__FILE__) . 'includes/js/yikes-mailchimp-eu-admin-functions.js', array( 'jquery' ) );
-			wp_enqueue_style( 'yikes-mailchimp-eu-compliance-styles' , plugin_dir_url(__FILE__) . 'includes/css/yikes-mailchimp-eu-law-icons.css' );
+			wp_enqueue_script( 'yikes-mailchimp-character-counter-script', plugin_dir_url(__FILE__) . 'includes/js/yikes-mailchimp-eu-admin-functions.js', array( 'jquery' ) );
+			wp_enqueue_style( 'yikes-mailchimp-eu-compliance-styles', plugin_dir_url(__FILE__) . 'includes/css/yikes-mailchimp-eu-law-icons.css' );
 		}
 	}
 	
@@ -198,7 +198,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 	*	@since 0.1
 	*/
 	public function enqueue_yikes_mailchimp_eu_compliance_frontend_styles( $hook ) {
-		wp_enqueue_style( 'yikes-mailchimp-eu-frontend-compliance-styles' , plugin_dir_url(__FILE__) . 'includes/css/yikes-mailchimp-eu-law-extension-frontend.css' );
+		wp_enqueue_style( 'yikes-mailchimp-eu-frontend-compliance-styles', plugin_dir_url(__FILE__) . 'includes/css/yikes-mailchimp-eu-law-extension-frontend.css' );
 	}
 
 	/**
@@ -247,8 +247,8 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 	}
 
 	// Create an array of MERGE fields like MERGE Tag => Field Label
-	public function get_merge_fields_dropdown() {
-		$field_data = $this->get_merge_fields();
+	public static function get_merge_fields_dropdown() {
+		$field_data = Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension::get_merge_fields();
 
 		$field_dd   = array( '' => 'Select...' );
 
@@ -261,7 +261,8 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 		return $field_dd;
 	}
 
-	private function get_merge_fields() {
+	// Fetch merge fields for this list.
+	public static function get_merge_fields() {
 
 		// Get the list ID from the URL
 		$form_id     = isset( $_GET['id'] ) ? $_GET['id'] : '';
@@ -275,77 +276,82 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 		$list_id      = isset( $form_data['list_id'] ) ? $form_data['list_id'] : '';
 		$list_handler = yikes_get_mc_api_manager()->get_list_handler();
 		$form_fields  = $list_handler->get_merge_fields( $list_id );
-		$field_data  = isset( $form_fields['merge_fields'] ) ? $form_fields['merge_fields'] : array();
+		$field_data   = isset( $form_fields['merge_fields'] ) ? $form_fields['merge_fields'] : array();
 
 		return $field_data;
 	}
+
+	// Add custom link to the links
+	public function add_eu_law_compliance_section_links() {
+
+		// Creating a new link on the edit form page
+		Yikes_Inc_Easy_Mailchimp_Extender_Helper::add_edit_form_section_link( array(
+			'id'          => 'eu-law-compliance-section', // section id
+			'text'        => __( 'EU Law Compliance', 'eu-opt-in-compliance-for-mailchimp' ), // the text that will display in the link
+			'icon_family' => 'custom',
+			'icon'        => 'yikes-mailchimp-eu-law' // dashicon icon class
+		) );
+	}
 	
-	/*
-	*	Adding additional sections & fields to the edit form screen
-	*	@since 0.1
-	*/
-		
-		/* Add custom link to the links */
-		public function add_eu_law_compliance_section_links() {
+	// Add custom section associated with link above
+	public static function render_eu_compliance_section() {	
 
-			// Creating a new link on the edit form page
-			Yikes_Inc_Easy_Mailchimp_Extender_Helper::add_edit_form_section_link( array(
-				'id'          => 'eu-law-compliance-section', // section id
-				'text'        => __( 'EU Law Compliance', 'eu-opt-in-compliance-for-mailchimp' ), // the text that will display in the link
-				'icon_family' => 'custom',
-				'icon'        => 'yikes-mailchimp-eu-law' // dashicon icon class
-			) );
-		}
-		
-		/* Add custom section associated with link above */
-		public static function render_eu_compliance_section() {	
+		// Defining a new section, associated with the link above
+		Yikes_Inc_Easy_Mailchimp_Extender_Helper::add_edit_form_section( array(
 
-			// defining a new section, associated with the link above
-			Yikes_Inc_Easy_Mailchimp_Extender_Helper::add_edit_form_section( array(
-				'id'               => 'eu-law-compliance-section',  // section id (must match link id above)
-				'main_title'       => __( 'Compliance Checkbox', 'eu-opt-in-compliance-for-mailchimp' ), // title of the main block of this custom section
-				'main_description' => __( 'A checkbox will display below your form. Users cannot be added to your mailing list unless the checkbox is clicked.' , 'eu-opt-in-compliance-for-mailchimp' ),
-				'main_fields'      => array(
-					array(
-						'label'   => __( 'Save Checkbox Opt-In as a Merge Field' , 'eu-opt-in-compliance-for-mailchimp' ), // label text for this field
-						'type'    => 'select', // type of field (text,select,checkbox,radio)
-						'options' => $this->get_merge_fields_dropdown(),
-						'id'          => 'eu-compliance-law-save-opt-in-field', // field id - determines how data is saved in database
-						'description' => __( 'Choose a merge field to store the opt-in compliance.' , 'eu-opt-in-compliance-for-mailchimp' ), // field description  
-					),
-					array(
-						'label'       => __( 'Merge Field Opt-In Value' , 'eu-opt-in-compliance-for-mailchimp' ), // label text for this field
-						'type'        => 'text', // type of field (text,select,checkbox,radio)
-						'placeholder' => 'Opted in',
-						'id'          => 'eu-compliance-law-save-opt-in-value', // field id - determines how data is saved in database
-						'description' => __( 'Enter what should be saved in the merge field chosen above' , 'eu-opt-in-compliance-for-mailchimp' ), // field description  
-					),
-					array(
-						'label'   => __( 'Pre-check Compliance Checkbox' , 'eu-opt-in-compliance-for-mailchimp' ), // label text for this field
-						'type'    => 'select', // type of field (text,select,checkbox,radio)
-						'options' => array(
-							'2' => __( 'No',  'eu-opt-in-compliance-for-mailchimp' ),
-							'1' => __( 'Yes', 'eu-opt-in-compliance-for-mailchimp' ),
-						),
-						'id'          => 'eu-compliance-law-checkbox-precheck', // field id - determines how data is saved in database
-						'description' => __( 'Should this checkbox be pre-checked on initial page load? (Note: pre-checking checkboxes may make your form noncompliant)' , 'eu-opt-in-compliance-for-mailchimp' ), // field description  
-					),
-					array(
-						'label'       => __( 'Compliance Checkbox Text' , 'eu-opt-in-compliance-for-mailchimp' ), // label text for this field
-						'type'        => 'wysiwyg', // type of field (text,select,checkbox,radio)
-						'id'          => 'eu-compliance-law-checkbox-text', // field id - determines how data is saved in database
-						'default'     => '',
-						'description' => __( 'This will show alongside your checkbox. Note: MailChimp limits this field to 1,000 characters and does not allow HTML.' , 'eu-opt-in-compliance-for-mailchimp' ), // field description  
-					),
-					array(
-						'label'   => __( 'Save Checkbox Compliance Text' , 'eu-opt-in-compliance-for-mailchimp' ), // label text for this field
-						'type'    => 'checkbox', // type of field (text,select,checkbox,radio)
-						'id'          => 'eu-compliance-law-checkbox-save-text', // field id - determines how data is saved in database
-						'description' => __( 'Should the content of the Compliance Checkbox Text be saved as a note on the subscriber?' , 'eu-opt-in-compliance-for-mailchimp' ), // field description  
-					),
+			// Section id (must match link id above)
+			// Title of the main block of this custom section
+
+			'id'               => 'eu-law-compliance-section',  
+			'main_title'       => __( 'Compliance Checkbox', 'eu-opt-in-compliance-for-mailchimp' ), 
+			'main_description' => __( 'A checkbox will display below your form. Users cannot be added to your mailing list unless the checkbox is clicked.', 'eu-opt-in-compliance-for-mailchimp' ),
+			'main_fields'      => array(
+
+				// Label text for this field
+				// Type of field (text, select, checkbox, radio)
+				// Field id - determines how data is saved in database
+				// Field description  
+
+				array(
+					'label'   => __( 'Save Checkbox Opt-In as a Merge Field', 'eu-opt-in-compliance-for-mailchimp' ),
+					'type'    => 'select', // 
+					'options' => Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension::get_merge_fields_dropdown(),
+					'id'          => 'eu-compliance-law-save-opt-in-field', 
+					'description' => __( 'Choose a merge field to store the opt-in compliance.', 'eu-opt-in-compliance-for-mailchimp' ),
 				),
-			) );
-		}
+				array(
+					'label'       => __( 'Merge Field Opt-In Value', 'eu-opt-in-compliance-for-mailchimp' ),
+					'type'        => 'text',
+					'placeholder' => 'Opted in',
+					'id'          => 'eu-compliance-law-save-opt-in-value',
+					'description' => __( 'Enter what should be saved in the merge field chosen above', 'eu-opt-in-compliance-for-mailchimp' ),
+				),
+				array(
+					'label'   => __( 'Pre-check Compliance Checkbox', 'eu-opt-in-compliance-for-mailchimp' ),
+					'type'    => 'select',
+					'options' => array(
+						'2' => __( 'No',  'eu-opt-in-compliance-for-mailchimp' ),
+						'1' => __( 'Yes', 'eu-opt-in-compliance-for-mailchimp' ),
+					),
+					'id'          => 'eu-compliance-law-checkbox-precheck',
+					'description' => __( 'Should this checkbox be pre-checked on initial page load? (Note: pre-checking checkboxes may make your form noncompliant)', 'eu-opt-in-compliance-for-mailchimp' ),
+				),
+				array(
+					'label'       => __( 'Compliance Checkbox Text', 'eu-opt-in-compliance-for-mailchimp' ),
+					'type'        => 'wysiwyg',
+					'id'          => 'eu-compliance-law-checkbox-text',
+					'default'     => __( 'Please confirm.', 'eu-opt-in-compliance-for-mailchimp' ),
+					'description' => __( 'This will show alongside your checkbox. Note: MailChimp limits this field to 1,000 characters and does not allow HTML.', 'eu-opt-in-compliance-for-mailchimp' ), // field description  
+				),
+				array(
+					'label'   => __( 'Save Checkbox Compliance Text', 'eu-opt-in-compliance-for-mailchimp' ),
+					'type'    => 'checkbox',
+					'id'          => 'eu-compliance-law-checkbox-save-text', 
+					'description' => __( 'Should the content of the Compliance Checkbox Text be saved as a note on the subscriber?', 'eu-opt-in-compliance-for-mailchimp' ),
+				),
+			),
+		) );
+	}
 		
 	/*
 	*	End additional sections & fields
@@ -376,7 +382,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 /*
 *	Ensure base class is loaded first
 */
-add_action( 'plugins_loaded' , 'load_eu_compliance_law_extension' );
+add_action( 'plugins_loaded', 'load_eu_compliance_law_extension' );
 function load_eu_compliance_law_extension() {	
 	if( class_exists( 'Yikes_Inc_Easy_Mailchimp_Forms_Admin' ) ) {
 		new Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension;
