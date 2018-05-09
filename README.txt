@@ -16,6 +16,10 @@ This addon creates an additional section on the Easy Forms for MailChimp form bu
 
 All MailChimp forms will have a checkbox above the submit button accompanied by text you can customize to confirm the user consents to their data being submitted.
 
+There is an option to save your checkbox confirmation text as a note on the subscriber's profile. This is to help you demonstrate consent as required by GDPR.
+
+There is another option to save a value of your choice to a specific MERGE field on your list. Along with demonstrating consent, this can help you manage your lists by showing you who has opted-in post-GDPR.
+
 > Note: This add-on plugin requires [Easy Forms for MailChimp](https://wordpress.org/plugins/yikes-inc-easy-mailchimp-extender/) to work.
 
 == Installation ==
@@ -36,9 +40,12 @@ Yes, this plugin is an add-on to [Easy Forms for MailChimp](https://wordpress.or
 = How do I change the opt-in text? =
 After installing and activating the plugin, you will find a new section on the Form Builder screen called "EU Law Compliance." There you can customize the opt-in checkbox text.
 
+= Will this plugin make my forms compliant with GDPR regulations? =
+This plugin is aimed to help you make your forms compliant but *its installation will not automatically guarantee compliance.* You need to review and follow the [guidelines established by the GDPR](https://www.eugdpr.org/) to ensure compliance.
+
 == Screenshots ==
 
-1. Admin: A new tab is added to your MailChimp form editor where you can customize your compliance checkbox text
+1. Admin: A new tab is added to your Easy Forms form editor where you can customize your compliance checkbox text along with other options for storing consent in MailChimp.
 2. Front-End: A checkbox with text is added to the front-end view of your MailChimp form
 
 == Changelog ==
