@@ -8,13 +8,13 @@ Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This add-on extends Easy Forms for MailChimp to allow MailChimp forms to comply with the EU Opt-In Directive
+This extends Easy Forms for MailChimp to make MailChimp forms comply with The EU General Data Protection Regulation (GDPR).
 
 == Description == 
 
-This addon extends Easy Forms for MailChimp by creating an additional section on the form builder called 'EU Law Compliance.' There you can manage a checkbox that will assist with making your form compliant with The EU Opt-In Directive (Directive 2002/58/EC, Directive 2003/58/EC) which covers all direct email marketing messages, including charitable and political messages.
+This addon creates an additional section on the Easy Forms for MailChimp form builder called 'EU Law Compliance.' There you can manage settings that will assist forms to be compliant with The EU General Data Protection Regulation (GDPR) which replaces the Data Protection Directive 95/46/EC. The law applies to the processing of personal user data in the European Union (EU) regardless of whether the processing takes place in the EU or not.
 
-Below all of the MailChimp forms on your site there will be a check box accompanied by some customizable text. 
+All MailChimp forms will have a checkbox above the submit button accompanied by text you can customize to confirm the user consents to their data being submitted.
 
 > Note: This add-on plugin requires [Easy Forms for MailChimp](https://wordpress.org/plugins/yikes-inc-easy-mailchimp-extender/) to work.
 
