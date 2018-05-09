@@ -324,7 +324,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 					'type'        => 'text',
 					'placeholder' => 'Opted in',
 					'id'          => 'eu-compliance-law-save-opt-in-value',
-					'description' => __( 'Enter what should be saved in the merge field chosen above', 'eu-opt-in-compliance-for-mailchimp' ),
+					'description' => __( 'Enter what should be saved in the merge field chosen above.', 'eu-opt-in-compliance-for-mailchimp' ),
 				),
 				array(
 					'label'   => __( 'Pre-check Compliance Checkbox', 'eu-opt-in-compliance-for-mailchimp' ),
@@ -334,7 +334,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 						'1' => __( 'Yes', 'eu-opt-in-compliance-for-mailchimp' ),
 					),
 					'id'          => 'eu-compliance-law-checkbox-precheck',
-					'description' => __( 'Should this checkbox be pre-checked on initial page load? (Note: pre-checking checkboxes may make your form noncompliant)', 'eu-opt-in-compliance-for-mailchimp' ),
+					'description' => __( 'Should this checkbox be pre-checked on initial page load? (Note: pre-checking checkboxes may make your form noncompliant.)', 'eu-opt-in-compliance-for-mailchimp' ),
 				),
 				array(
 					'label'       => __( 'Compliance Checkbox Text', 'eu-opt-in-compliance-for-mailchimp' ),
