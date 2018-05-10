@@ -1,14 +1,14 @@
-=== EU Opt-In Compliance for MailChimp ===
+=== GDPR Compliance for MailChimp ===
 Contributors: yikesinc, eherman24, liljimmi, yikesitskevin
 Donate link: http://www.yikesinc.com
-Tags: MailChimp, Yikes MailChimp, EU, Compliance, Law, Opt-in
+Tags: GDPR, MailChimp, Yikes MailChimp, EU, Compliance, Law, Opt-in
 Requires at least: 3.5
 Tested up to: 4.9.5
 Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This extends Easy Forms for MailChimp to make MailChimp forms comply with The EU General Data Protection Regulation (GDPR).
+This extends Easy Forms for MailChimp to help make forms comply with The EU General Data Protection Regulation (GDPR).
 
 == Description == 
 

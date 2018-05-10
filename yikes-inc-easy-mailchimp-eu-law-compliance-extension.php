@@ -1,43 +1,42 @@
 <?php
 /**
- * 		Plugin Name:       	EU Opt-In Compliance for MailChimp
- * 		Plugin URI:       	http://www.yikesinc.com
- * 		Description:       	This add-on extends Easy Forms for MailChimp to allow MailChimp forms to comply with the EU Opt-In Directive.
- * 		Version:          	1.2.0
- * 		Author:            	YIKES, Inc.
- * 		Author URI:        	http://www.yikesinc.com
- * 		License:          	GPL-2.0+
- * 		License URI:       	http://www.gnu.org/licenses/gpl-2.0.txt
- * 		Text Domain:       	eu-opt-in-compliance-for-mailchimp
- * 		Domain Path:       	/languages
- *		
- * 		EU Opt-In Compliance for MailChimp is free software: you can redistribute it and/or modify
- * 		it under the terms of the GNU General Public License as published by
- * 		the Free Software Foundation, either version 2 of the License, or
- * 		any later version.
+ * Plugin Name: GDPR Compliance for MailChimp for MailChimp
+ * Plugin URI:  http://www.yikesinc.com
+ * Description: This extends Easy Forms for MailChimp to help make forms comply with The EU General Data Protection Regulation (GDPR).
+ * Version:     1.2.0
+ * Author:      YIKES, Inc.
+ * Author URI:  http://www.yikesinc.com
+ * License:     GPL-2.0+
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain: eu-opt-in-compliance-for-mailchimp
+ * Domain Path: /languages
  *
- * 		EU Opt-In Compliance for MailChimp is distributed in the hope that it will be useful,
- * 		but WITHOUT ANY WARRANTY; without even the implied warranty of
- * 		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * 		GNU General Public License for more details.
+ * EU Opt-In Compliance for MailChimp is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 2 of the License, or
+ * any later version.
  *
- * 		You should have received a copy of the GNU General Public License
- *		along with Easy Forms for MailChimp. If not, see <http://www.gnu.org/licenses/>.
+ * EU Opt-In Compliance for MailChimp is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
  *
- *		We at Yikes Inc. embrace the open source philosophy on a daily basis. We donate company time back to the WordPress project,
- *		and constantly strive to improve the WordPress project and community as a whole. We eat, sleep and breath WordPress.
+ * You should have received a copy of the GNU General Public License
+ * along with Easy Forms for MailChimp. If not, see <http://www.gnu.org/licenses/>.
  *
- *		"'Free software' is a matter of liberty, not price. To understand the concept, you should think of 'free' as in 'free speech,' not as in 'free beer'."
- *		- Richard Stallman
+ * We at YIKES Inc. embrace the open source philosophy on a daily basis. We donate company time back to the WordPress project,
+ * and constantly strive to improve the WordPress project and community as a whole. We eat, sleep and breath WordPress.
  *
-**/
+ * "'Free software' is a matter of liberty, not price. To understand the concept, you should think of 'free' as in 'free speech,' not as in 'free beer'."
+ * - Richard Stallman
+ */
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-// must include plugin.php to use is_plugin_active()
+// must include plugin.php to use is_plugin_active().
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 if ( ! is_plugin_active( 'yikes-inc-easy-mailchimp-extender/yikes-inc-easy-mailchimp-extender.php' ) ) {
 	deactivate_plugins( plugin_basename( __FILE__ ) );
@@ -55,11 +54,11 @@ function yikes_inc_mailchimp_eu_law_compliance_display_activation_error() {
 		</style>
 		<!-- display our error message -->
 		<div class="error">
-			<p><?php _e( 'EU Opt-In Compliance for MailChimp could not be activated because the base plugin is not installed and active.', 'eu-opt-in-compliance-for-mailchimp' ); ?></p>
-			<p><?php printf( __( 'Please install and activate %s before activating this extension.', 'eu-opt-in-compliance-for-mailchimp' ) , '<a href="' . esc_url_raw( admin_url( 'plugin-install.php?tab=search&type=term&s=Yikes+Inc.+Easy+MailChimp+Forms' ) ) . '" title="Easy Forms for MailChimp">Easy Forms for MailChimp</a>' ); ?></p>
+			<p><?php _e( 'GDPR Compliance for MailChimp could not be activated because the base plugin is not installed and active.', 'eu-opt-in-compliance-for-mailchimp' ); ?></p>
+			<p><?php printf( __( 'Please install and activate %s before activating this extension.', 'eu-opt-in-compliance-for-mailchimp' ), '<a href="' . esc_url_raw( admin_url( 'plugin-install.php?tab=search&type=term&s=Yikes+Inc.+Easy+MailChimp+Forms' ) ) . '" title="Easy Forms for MailChimp">Easy Forms for MailChimp</a>' ); ?></p>
 		</div>
 	<?php
-}	
+}
 /* end check */
 
 /********* Begin Main Plugin ***********/
@@ -68,34 +67,34 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 	/* Construction of our main class */
 	public function __construct() {
 
-		// add our incentives link to the edit form page
-		add_action( 'yikes-mailchimp-edit-form-section-links', array( $this , 'add_eu_law_compliance_section_links' ) );
+		// add our incentives link to the edit form page.
+		add_action( 'yikes-mailchimp-edit-form-section-links', array( $this, 'add_eu_law_compliance_section_links' ) );
 
-		// add the incentives section to the edit form page
-		add_action( 'yikes-mailchimp-edit-form-sections', array( $this , 'render_eu_compliance_section' ) );
+		// add the incentives section to the edit form page.
+		add_action( 'yikes-mailchimp-edit-form-sections', array( $this, 'render_eu_compliance_section' ) );
 
-		// include our scripts & styles on the admin
+		// include our scripts & styles on the admin.
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_yikes_mailchimp_eu_compliance_admin_styles_scripts' ) );
 
-		// include our scripts & styles on the frontend
+		// include our scripts & styles on the frontend.
 		add_action( 'yikes-mailchimp-shortcode-enqueue-scripts-styles', array( $this, 'enqueue_yikes_mailchimp_eu_compliance_frontend_styles' ) );
 
-		// render our checkbox after the form
+		// render our checkbox after the form.
 		add_action( 'yikes-mailchimp-additional-form-fields', array( $this, 'render_frontend_compliance_checkbox' ), 10, 1 );
 
-		// Add the WYSIWYG text as a note on the user's form submission
+		// Add the WYSIWYG text as a note on the user's form submission.
 		add_filter( 'yikes-mailchimp-form-submission', array( $this, 'submit_checkbox_compliance_merge_field' ), 10, 4 );
 
-		// Add the opt-in value as a MERGE field on the subscriber's submission
+		// Add the opt-in value as a MERGE field on the subscriber's submission.
 		add_filter( 'yikes-mailchimp-filter-before-submission', array( $this, 'add_checkbox_optin_merge_field' ), 10, 1 );
 
-		// set the locale
+		// set the locale.
 		$this->set_locale();
 	}
 
 	/**
-	* Populate a new merge field with the value of the opt-in field specified in the admin
-	*/
+	 * Populate a new merge field with the value of the opt-in field specified in the admin
+	 */
 	public function add_checkbox_optin_merge_field( $merge_variables ) {
 
 		$form_id = isset( $_POST['form_id'] ) ? $_POST['form_id'] : '';
@@ -104,14 +103,14 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 			return $merge_variables;
 		}
 
-		$interface     = yikes_easy_mailchimp_extender_get_form_interface();
-		$form_data     = $interface->get_form( $form_id );
+		$interface = yikes_easy_mailchimp_extender_get_form_interface();
+		$form_data = $interface->get_form( $form_id );
 
-		// Get this form's custom fields
+		// Get this form's custom fields.
 		$custom_fields = $this->get_custom_field_data( $form_data );
 
-		$opt_in_field  = isset( $custom_fields['eu-compliance-law-save-opt-in-field'] ) ? $custom_fields['eu-compliance-law-save-opt-in-field'] : false;
-		$opt_in_value  = isset( $custom_fields['eu-compliance-law-save-opt-in-value'] ) ? $custom_fields['eu-compliance-law-save-opt-in-value'] : false;
+		$opt_in_field = isset( $custom_fields['eu-compliance-law-save-opt-in-field'] ) ? $custom_fields['eu-compliance-law-save-opt-in-field'] : false;
+		$opt_in_value = isset( $custom_fields['eu-compliance-law-save-opt-in-value'] ) ? $custom_fields['eu-compliance-law-save-opt-in-value'] : false;
 
 		// Make sure we have data...
 		if ( empty( $opt_in_field ) || empty( $opt_in_value ) ) {
@@ -124,41 +123,41 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 	}
 
 	/**
-	* Add a new note containing the Checkbox Compliance language to a user's profile when they subscribe. 
-	*/
+	 * Add a new note containing the Checkbox Compliance language to a user's profile when they subscribe. 
+	 */
 	public function submit_checkbox_compliance_merge_field( $email, $merge_variables, $form_id, $notifications ) {
 
-		// Get the list ID from the form ID
-		$interface     = yikes_easy_mailchimp_extender_get_form_interface();
-		$form_data     = $interface->get_form( $form_id );
+		// Get the list ID from the form ID.
+		$interface = yikes_easy_mailchimp_extender_get_form_interface();
+		$form_data = $interface->get_form( $form_id );
 
-		// Get this form's custom fields
+		// Get this form's custom fields.
 		$custom_fields = $this->get_custom_field_data( $form_data );
 
-		$save_notes    = isset( $custom_fields['eu-compliance-law-checkbox-save-text'] ) ? $custom_fields['eu-compliance-law-checkbox-save-text'] : false;
+		$save_notes = isset( $custom_fields['eu-compliance-law-checkbox-save-text'] ) ? $custom_fields['eu-compliance-law-checkbox-save-text'] : false;
+		.
+		// Convert the email.
+		$email = md5( strtolower( $email ) );
 
-		// Convert the email
-		$email         = md5( strtolower( $email ) );
+		// Get the list id.
+		$list_id = isset( $form_data['list_id'] ) ? $form_data['list_id'] : null;
 
-		// Get the list id
-		$list_id       = isset( $form_data['list_id'] ) ? $form_data['list_id'] : null;
-
-		// Get the list handler
-		$list_handler  = yikes_get_mc_api_manager()->get_list_handler();
+		// Get the list handler.
+		$list_handler = yikes_get_mc_api_manager()->get_list_handler();
 
 		// Make sure we have data...
 		if ( empty( $email ) || empty( $list_id ) || empty( $save_notes ) ) {
 			return;
 		}
 
-		// Get the notes value
-		$notes_text    = isset( $custom_fields['eu-compliance-law-checkbox-text'] ) ? strip_tags( $custom_fields['eu-compliance-law-checkbox-text'] ) : '';
-		$notes_data    = array(
-			'note' => $notes_text
+		// Get the notes value.
+		$notes_text = isset( $custom_fields['eu-compliance-law-checkbox-text'] ) ? strip_tags( $custom_fields['eu-compliance-law-checkbox-text'] ) : '';
+		$notes_data = array(
+			'note' => $notes_text,
 		);
 
-		// Make sure our create_member_note method exists. 
-		// It was added in Easy Forms 6.4.2
+		// Make sure our create_member_note method exists.
+		// It was added in Easy Forms 6.4.2.
 		if ( ! method_exists( $list_handler, 'create_member_note' ) ) {
 			if ( class_exists( 'Yikes_Inc_Easy_Mailchimp_Error_Logging' ) ) {
 				$error_logging = new Yikes_Inc_Easy_Mailchimp_Error_Logging();
@@ -169,41 +168,43 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 			return;
 		}
 
-		// Create a note
+		// Create a note.
 		$note_response = $list_handler->create_member_note( $list_id, $email, $notes_data );
 
-		// If there's an error, log it using the base plugin's logging class
+		// If there's an error, log it using the base plugin's logging class.
 		if ( is_wp_error( $note_response ) && class_exists( 'Yikes_Inc_Easy_Mailchimp_Error_Logging' ) ) {
 			$error_logging = new Yikes_Inc_Easy_Mailchimp_Error_Logging();
 			if ( method_exists( $error_logging, 'maybe_write_to_log' ) ) {
-				$error_logging->maybe_write_to_log( $note_response->get_error_code(), __( "Create member note", 'eu-opt-in-compliance-for-mailchimp' ), 'yikes-inc-easy-mailchimp-eu-law-compliance-extension.php' );
+				$error_logging->maybe_write_to_log( $note_response->get_error_code(), __( 'Create member note', 'eu-opt-in-compliance-for-mailchimp' ), 'yikes-inc-easy-mailchimp-eu-law-compliance-extension.php' );
 			}
 		}
 	}
-	
-	/* 
-	*	Enqueue our styles on the dashboard
-	*	@since 0.1
-	*/
+
+	/**
+	 * Enqueue our styles on the dashboard
+	 * @since 0.1
+	 */
+
 	public function enqueue_yikes_mailchimp_eu_compliance_admin_styles_scripts( $hook ) {
 
 		if ( 'admin_page_yikes-mailchimp-edit-form' == $hook ) {
-			wp_enqueue_script( 'yikes-mailchimp-character-counter-script', plugin_dir_url(__FILE__) . 'includes/js/yikes-mailchimp-eu-admin-functions.js', array( 'jquery' ) );
-			wp_enqueue_style( 'yikes-mailchimp-eu-compliance-styles', plugin_dir_url(__FILE__) . 'includes/css/yikes-mailchimp-eu-law-icons.css' );
+			wp_enqueue_script( 'yikes-mailchimp-character-counter-script', plugin_dir_url( __FILE__ ) . 'includes/js/yikes-mailchimp-eu-admin-functions.js', array( 'jquery' ) );
+			wp_enqueue_style( 'yikes-mailchimp-eu-compliance-styles', plugin_dir_url( __FILE__ ) . 'includes/css/yikes-mailchimp-eu-law-icons.css' );
 		}
 	}
-	
-	/* 
-	*	Enqueue our styles on the frontend
-	*	@since 0.1
-	*/
+
+	/**
+	 * Enqueue our styles on the frontend
+	 * @since 0.1
+	 */
+
 	public function enqueue_yikes_mailchimp_eu_compliance_frontend_styles( $hook ) {
 		wp_enqueue_style( 'yikes-mailchimp-eu-frontend-compliance-styles', plugin_dir_url(__FILE__) . 'includes/css/yikes-mailchimp-eu-law-extension-frontend.css' );
 	}
 
 	/**
-	* Get the custom field data from an Easy Form's form data
-	*/
+	 * Get the custom field data from an Easy Form's form data
+	 */
 	private function get_custom_field_data( $form_data ) {
 
 		if ( is_string( $form_data['custom_fields'] ) ) {
@@ -214,12 +215,12 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 
 		return array();
 	}
-	
-	/*
-	*	Render the custom checkbox on the front end of the site
-	*	hook into yikes-mailchimp-additional-form-fields
-	*	@since 0.1
-	*/
+
+	/**
+	 *	Render the custom checkbox on the front end of the site
+	 *	hook into yikes-mailchimp-additional-form-fields
+	 *	@since 0.1
+	 */
 	public function render_frontend_compliance_checkbox( $form_data ) {
 
 		$custom_field_data = $this->get_custom_field_data( $form_data );
@@ -227,30 +228,30 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 		$prechecked    = isset( $custom_field_data['eu-compliance-law-checkbox-precheck'] ) ? $custom_field_data['eu-compliance-law-checkbox-precheck'] : 0;
 		$checkbox_text = isset( $custom_field_data['eu-compliance-law-checkbox-text'] ) ? $custom_field_data['eu-compliance-law-checkbox-text'] : '';
 
-		// A filter specifically for removing `the_content()` filter as it can create issues
+		// A filter specifically for removing `the_content()` filter as it can create issues.
 		if ( apply_filters( 'yikes-mailchimp-eu-compliance-use-the-content', true ) === true ) {
-			$checkbox_text = ! is_customize_preview() ? apply_filters( 'the_content', $checkbox_text ) : $checkbox_text; 
+			$checkbox_text = ! is_customize_preview() ? apply_filters( 'the_content', $checkbox_text ) : $checkbox_text;
 		}
 
-		// A general filter for the checkbox text
+		// A general filter for the checkbox text.
 		$checkbox_text = apply_filters( 'yikes-mailchimp-eu-compliance-checkbox-text', $checkbox_text );
 
-		// Filter whether the checkbox is required to continue
+		// Filter whether the checkbox is required to continue.
 		$checkbox_required = apply_filters( 'yikes-mailchimp-eu-compliance-checkbox-required', 'required="required"' );
 
-		$checked       = $prechecked === '1' ? 'checked="checked"' : '';
-		$html          = '<label class="yikes-mailchimp-eu-compliance-label"><input type="checkbox" ' . $checkbox_required . ' name="eu-laws" value="1" ' . $checked . '> <div class="yikes-mailchimp-eu-compliance-text">' . $checkbox_text . '</div></label>';
+		$checked = $prechecked === '1' ? 'checked="checked"' : '';
+		$html    = '<label class="yikes-mailchimp-eu-compliance-label"><input type="checkbox" ' . $checkbox_required . ' name="eu-laws" value="1" ' . $checked . '> <div class="yikes-mailchimp-eu-compliance-text">' . $checkbox_text . '</div></label>';
 
 		$html = apply_filters( 'yikes-mailchimp-eu-compliance-checkbox-text-html', $html );
 
 		echo $html;
 	}
 
-	// Create an array of MERGE fields like MERGE Tag => Field Label
+	// Create an array of MERGE fields like MERGE Tag => Field Label.
 	public static function get_merge_fields_dropdown() {
 		$field_data = Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension::get_merge_fields();
 
-		$field_dd   = array( '' => 'Select...' );
+		$field_dd = array( '' => 'Select...' );
 
 		if ( ! empty( $field_data ) ) {
 			foreach ( $field_data as $key => $field ) {
@@ -264,7 +265,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 	// Fetch merge fields for this list.
 	public static function get_merge_fields() {
 
-		// Get the list ID from the URL
+		// Get the list ID from the URL.
 		$form_id     = isset( $_GET['id'] ) ? $_GET['id'] : '';
 
 		if ( empty( $form_id ) ) {
@@ -281,15 +282,15 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 		return $field_data;
 	}
 
-	// Add custom link to the links
+	// Add custom link to the links.
 	public function add_eu_law_compliance_section_links() {
 
-		// Creating a new link on the edit form page
+		// Creating a new link on the edit form page.
 		Yikes_Inc_Easy_Mailchimp_Extender_Helper::add_edit_form_section_link( array(
-			'id'          => 'eu-law-compliance-section', // section id
-			'text'        => __( 'EU Law Compliance', 'eu-opt-in-compliance-for-mailchimp' ), // the text that will display in the link
+			'id'          => 'eu-law-compliance-section', // section id.
+			'text'        => __( 'EU Law Compliance', 'eu-opt-in-compliance-for-mailchimp' ), // the text that will display in the link.
 			'icon_family' => 'custom',
-			'icon'        => 'yikes-mailchimp-eu-law' // dashicon icon class
+			'icon'        => 'yikes-mailchimp-eu-law', // dashicon icon class.
 		) );
 	}
 
@@ -299,7 +300,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 		// Defining a new section, associated with the link above.
 		Yikes_Inc_Easy_Mailchimp_Extender_Helper::add_edit_form_section( array(
 
-			// Section id (must match link id above)
+			// Section id (must match link id above).
 			// Title of the main block of this custom section.
 			'id'               => 'eu-law-compliance-section',
 			'main_title'       => __( 'Compliance Checkbox', 'eu-opt-in-compliance-for-mailchimp' ),
