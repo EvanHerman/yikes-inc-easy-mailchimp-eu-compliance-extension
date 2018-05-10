@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: GDPR Compliance for MailChimp for MailChimp
+ * Plugin Name: GDPR Compliance for MailChimp
  * Plugin URI:  http://www.yikesinc.com
  * Description: This extends Easy Forms for MailChimp to help make forms comply with The EU General Data Protection Regulation (GDPR).
  * Version:     1.2.0
@@ -135,7 +135,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 		$custom_fields = $this->get_custom_field_data( $form_data );
 
 		$save_notes = isset( $custom_fields['eu-compliance-law-checkbox-save-text'] ) ? $custom_fields['eu-compliance-law-checkbox-save-text'] : false;
-		.
+
 		// Convert the email.
 		$email = md5( strtolower( $email ) );
 
