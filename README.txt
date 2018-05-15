@@ -4,7 +4,7 @@ Donate link: http://www.yikesinc.com
 Tags: GDPR, MailChimp, Yikes MailChimp, EU, Compliance, Law, Opt-in
 Requires at least: 3.5
 Tested up to: 4.9.5
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,6 +49,10 @@ This plugin is aimed to help you make your forms compliant but *its installation
 2. Front-End: A checkbox with text is added to the front-end view of your MailChimp form
 
 == Changelog ==
+
+= 1.2.1 = 
+* Removed the use of the `the_content` filter (also removed the filter `yikes-mailchimp-eu-compliance-use-the-content` that controlled the use of `the_content`)
+* Changed the placeholder text for the Merge Field Opt-In Value field to help avoid confusion
 
 = 1.2.0 =
 * Added a new checkbox that controls whether your checkbox confirmation language is sent to MailChimp

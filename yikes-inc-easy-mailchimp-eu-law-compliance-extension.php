@@ -3,7 +3,7 @@
  * Plugin Name: GDPR Compliance for MailChimp
  * Plugin URI:  http://www.yikesinc.com
  * Description: This extends Easy Forms for MailChimp to help make forms comply with The EU General Data Protection Regulation (GDPR).
- * Version:     1.2.0
+ * Version:     1.2.1
  * Author:      YIKES, Inc.
  * Author URI:  http://www.yikesinc.com
  * License:     GPL-2.0+
@@ -228,10 +228,8 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 		$prechecked    = isset( $custom_field_data['eu-compliance-law-checkbox-precheck'] ) ? $custom_field_data['eu-compliance-law-checkbox-precheck'] : 0;
 		$checkbox_text = isset( $custom_field_data['eu-compliance-law-checkbox-text'] ) ? $custom_field_data['eu-compliance-law-checkbox-text'] : '';
 
-		// A filter specifically for removing `the_content()` filter as it can create issues.
-		if ( apply_filters( 'yikes-mailchimp-eu-compliance-use-the-content', true ) === true ) {
-			$checkbox_text = ! is_customize_preview() ? apply_filters( 'the_content', $checkbox_text ) : $checkbox_text;
-		}
+		// Run the text through a custom content filter
+		$checkbox_text = $this->custom_the_content( $checkbox_text );
 
 		// A general filter for the checkbox text.
 		$checkbox_text = apply_filters( 'yikes-mailchimp-eu-compliance-checkbox-text', $checkbox_text );
@@ -321,7 +319,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 				array(
 					'label'       => __( 'Merge Field Opt-In Value', 'eu-opt-in-compliance-for-mailchimp' ),
 					'type'        => 'text',
-					'placeholder' => 'Opted in',
+					'placeholder' => 'Enter a value, e.g. opted in',
 					'id'          => 'eu-compliance-law-save-opt-in-value',
 					'description' => __( 'Enter what should be saved in the merge field chosen above.', 'eu-opt-in-compliance-for-mailchimp' ),
 				),
@@ -374,7 +372,30 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 		$eu_compliance_i18n = new Yikes_Inc_Easy_Mailchimp_EU_Compliance_i18n();
 		$eu_compliance_i18n->set_domain( 'eu-opt-in-compliance-for-mailchimp' );
 		add_action( 'plugins_loaded', array( $eu_compliance_i18n, 'load_eu_compliance_text_domain' ) );
-	}	
+	}
+
+	/**
+	* A function that works like `the_content` filter but doesn't bring all of the issues associated with using `the_content`
+	*/
+	private function custom_the_content( $content ) {
+
+		$content = function_exists( 'capital_P_dangit' ) ? capital_P_dangit( $content ) : $content;
+		$content = function_exists( 'wptexturize' ) ? wptexturize( $content ) : $content;
+		$content = function_exists( 'convert_smilies' ) ? convert_smilies( $content ) : $content;
+		$content = function_exists( 'wpautop' ) ? wpautop( $content ) : $content;
+		$content = function_exists( 'shortcode_unautop' ) ? shortcode_unautop( $content ) : $content;
+		$content = function_exists( 'prepend_attachment' ) ? prepend_attachment( $content ) : $content;
+		$content = function_exists( 'wp_make_content_images_responsive' ) ? wp_make_content_images_responsive( $content ) : $content;
+
+		if ( class_exists( 'WP_Embed' ) ) {
+
+			// Deal with URLs
+			$embed = new WP_Embed;
+			$content = method_exists( $embed, 'autoembed' ) ? $embed->autoembed( $content ) : $content;
+		}	
+
+		return $content;
+	}
 }
 
 /*
