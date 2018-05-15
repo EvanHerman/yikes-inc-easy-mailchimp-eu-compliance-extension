@@ -386,6 +386,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 		$content = function_exists( 'shortcode_unautop' ) ? shortcode_unautop( $content ) : $content;
 		$content = function_exists( 'prepend_attachment' ) ? prepend_attachment( $content ) : $content;
 		$content = function_exists( 'wp_make_content_images_responsive' ) ? wp_make_content_images_responsive( $content ) : $content;
+		$content = function_exists( 'do_shortcode' ) ? do_shortcode( $content ) : $content;
 
 		if ( class_exists( 'WP_Embed' ) ) {
 
