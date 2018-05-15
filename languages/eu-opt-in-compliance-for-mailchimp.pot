@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eu-opt-in-compliance-for-mailchimp 1.1.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-09 19:35+0000\n"
+"POT-Creation-Date: 2018-05-15 17:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,81 +38,81 @@ msgstr[1] ""
 msgid "yyyy-mm-dd"
 msgstr ""
 
-#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:58
+#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:57
 msgid ""
-"EU Opt-In Compliance for MailChimp could not be activated because the base "
-"plugin is not installed and active."
+"GDPR Compliance for MailChimp could not be activated because the base plugin "
+"is not installed and active."
 msgstr ""
 
-#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:59
+#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:58
 #, php-format
 msgid "Please install and activate %s before activating this extension."
 msgstr ""
 
-#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:166
-#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:179
+#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:165
+#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:178
 msgid "Create member note"
 msgstr ""
 
-#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:290
+#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:289
 msgid "EU Law Compliance"
 msgstr ""
 
-#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:305
+#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:304
 msgid "Compliance Checkbox"
 msgstr ""
 
-#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:306
+#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:305
 msgid ""
 "A checkbox will display below your form. Users cannot be added to your "
 "mailing list unless the checkbox is clicked."
 msgstr ""
 
-#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:314
+#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:313
 msgid "Save Checkbox Opt-In as a Merge Field"
 msgstr ""
 
-#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:318
+#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:317
 msgid "Choose a merge field to store the opt-in compliance."
 msgstr ""
 
-#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:321
+#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:320
 msgid "Merge Field Opt-In Value"
 msgstr ""
 
-#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:325
+#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:324
 msgid "Enter what should be saved in the merge field chosen above."
 msgstr ""
 
-#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:328
+#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:327
 msgid "Pre-check Compliance Checkbox"
 msgstr ""
 
-#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:331
+#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:330
 msgid "No"
 msgstr ""
 
-#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:332
+#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:331
 msgid "Yes"
 msgstr ""
 
-#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:335
+#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:334
 msgid ""
 "Should this checkbox be pre-checked on initial page load? (Note: pre-"
 "checking checkboxes may make your form noncompliant.)"
 msgstr ""
 
-#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:338
+#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:337
 msgid "Compliance Checkbox Consent Text"
 msgstr ""
 
-#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:341
+#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:340
 msgid ""
 "By checking this box I consent to the use of my information provided for "
 "email marketing purposes."
 msgstr ""
 
-#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:342
+#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:341
 msgid ""
 "This text will display alongside the checkbox. The request for consent must "
 "be given with the purpose for data processing included. Consent must be in "
@@ -120,11 +120,11 @@ msgid ""
 "does not allow HTML."
 msgstr ""
 
-#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:345
+#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:344
 msgid "Save Checkbox Compliance Text"
 msgstr ""
 
-#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:348
+#: yikes-inc-easy-mailchimp-eu-law-compliance-extension.php:347
 msgid ""
 "Should the content of the Compliance Checkbox Text be saved as a note on the "
 "subscriber?"
