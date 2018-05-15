@@ -404,7 +404,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 add_action( 'plugins_loaded', 'load_eu_compliance_law_extension' );
 function load_eu_compliance_law_extension() {
 	if ( class_exists( 'Yikes_Inc_Easy_Mailchimp_Forms_Admin' ) ) {
-		new Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension;
+		$Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension = new Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension;
 	}
 }
 
