@@ -3,7 +3,7 @@
  * Plugin Name: GDPR Compliance for MailChimp
  * Plugin URI:  http://www.yikesinc.com
  * Description: This extends Easy Forms for MailChimp to help make forms comply with The EU General Data Protection Regulation (GDPR).
- * Version:     1.2.1
+ * Version:     1.2.2
  * Author:      YIKES, Inc.
  * Author URI:  http://www.yikesinc.com
  * License:     GPL-2.0+
@@ -88,8 +88,25 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 		// Add the opt-in value as a MERGE field on the subscriber's submission.
 		add_filter( 'yikes-mailchimp-filter-before-submission', array( $this, 'add_checkbox_optin_merge_field' ), 10, 1 );
 
+		// Server side logic to make sure the checkbox was checked.
+		add_filter( 'yikes-mailchimp-filter-before-submission', array( $this, 'maybe_fail_if_checkbox_not_checked' ), 1, 1 );
+
 		// set the locale.
 		$this->set_locale();
+	}
+
+	public function maybe_fail_if_checkbox_not_checked( $merge_variables ) {
+		parse_str( $_POST['form_data'], $data );
+		if ( ! isset( $data['eu-laws'] ) && ! empty( $this->is_checkbox_required() ) ) {
+			$merge_variables['error']   = true;
+			$merge_variables['message'] = apply_filters( 'yikes_mailchimp_eu_compliance_checkbox_required_message', __( 'Please give your consent to subscribe to this list by checking the checkbox.', 'eu-opt-in-compliance-for-mailchimp' ), $merge_variables );	
+		}
+		
+		return $merge_variables;
+	}
+
+	private function is_checkbox_required() {
+		return apply_filters( 'yikes-mailchimp-eu-compliance-checkbox-required', true );
 	}
 
 	/**
@@ -235,7 +252,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 		$checkbox_text = apply_filters( 'yikes-mailchimp-eu-compliance-checkbox-text', $checkbox_text );
 
 		// Filter whether the checkbox is required to continue.
-		$checkbox_required = apply_filters( 'yikes-mailchimp-eu-compliance-checkbox-required', 'required="required"' );
+		$checkbox_required = $this->is_checkbox_required() ? 'required="required"' : '';
 
 		$checked = $prechecked === '1' ? 'checked="checked"' : '';
 		$html    = '<label class="yikes-mailchimp-eu-compliance-label"><input type="checkbox" ' . $checkbox_required . ' name="eu-laws" value="1" ' . $checked . '> <div class="yikes-mailchimp-eu-compliance-text">' . $checkbox_text . '</div></label>';

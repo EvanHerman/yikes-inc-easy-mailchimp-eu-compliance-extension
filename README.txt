@@ -3,8 +3,8 @@ Contributors: yikesinc, eherman24, liljimmi, yikesitskevin
 Donate link: http://www.yikesinc.com
 Tags: GDPR, MailChimp, Yikes MailChimp, EU, Compliance, Law, Opt-in
 Requires at least: 3.5
-Tested up to: 4.9.6
-Stable tag: 1.2.1
+Tested up to: 5.0.2
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,6 +49,10 @@ This plugin is aimed to help you make your forms compliant but *its installation
 2. Front-End: A checkbox with text is added to the front-end view of your MailChimp form
 
 == Changelog ==
+
+= 1.2.2 = 
+* Adding a server side check that makes sure the checkbox was checked.
+* The default message returned when the checkbox isn't checked is "Please give your consent to subscribe to this list by checking the checkbox." This can be filtered via `yikes_mailchimp_eu_compliance_checkbox_required_message`.
 
 = 1.2.1 = 
 * Removed the use of the `the_content` filter (also removed the filter `yikes-mailchimp-eu-compliance-use-the-content` that controlled the use of `the_content`)
