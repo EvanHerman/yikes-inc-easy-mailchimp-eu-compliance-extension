@@ -3,7 +3,7 @@
  * Plugin Name: GDPR Compliance for MailChimp
  * Plugin URI:  http://www.yikesinc.com
  * Description: This extends Easy Forms for MailChimp to help make forms comply with The EU General Data Protection Regulation (GDPR).
- * Version:     1.2.2
+ * Version:     1.2.3
  * Author:      YIKES, Inc.
  * Author URI:  http://www.yikesinc.com
  * License:     GPL-2.0+
@@ -77,7 +77,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_yikes_mailchimp_eu_compliance_admin_styles_scripts' ) );
 
 		// include our scripts & styles on the frontend.
-		add_action( 'yikes-mailchimp-shortcode-enqueue-scripts-styles', array( $this, 'enqueue_yikes_mailchimp_eu_compliance_frontend_styles' ) );
+		add_action( 'yikes-mailchimp-shortcode-enqueue-scripts-styles', array( $this, 'enqueue_yikes_mailchimp_eu_compliance_frontend_assets' ) );
 
 		// render our checkbox after the form.
 		add_action( 'yikes-mailchimp-additional-form-fields', array( $this, 'render_frontend_compliance_checkbox' ), 10, 1 );
@@ -97,7 +97,8 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 
 	public function maybe_fail_if_checkbox_not_checked( $merge_variables ) {
 		parse_str( $_POST['form_data'], $data );
-		if ( ! isset( $data['eu-laws'] ) && ! empty( $this->is_checkbox_required() ) ) {
+		$checkbox_required = $this->is_checkbox_required();
+		if ( ! isset( $data['eu-laws'] ) && ! empty( $is_checkbox_required ) ) {
 			$merge_variables['error']   = true;
 			$merge_variables['message'] = apply_filters( 'yikes_mailchimp_eu_compliance_checkbox_required_message', __( 'Please give your consent to subscribe to this list by checking the checkbox.', 'eu-opt-in-compliance-for-mailchimp' ), $merge_variables );	
 		}
@@ -215,8 +216,9 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 	 * @since 0.1
 	 */
 
-	public function enqueue_yikes_mailchimp_eu_compliance_frontend_styles( $hook ) {
+	public function enqueue_yikes_mailchimp_eu_compliance_frontend_assets() {
 		wp_enqueue_style( 'yikes-mailchimp-eu-frontend-compliance-styles', plugin_dir_url(__FILE__) . 'includes/css/yikes-mailchimp-eu-law-extension-frontend.css' );
+		wp_enqueue_script( 'yikes-mailchimp-eu-frontend-compliance-scripts', plugin_dir_url(__FILE__) . 'includes/js/yikes-mailchimp-front-end-form-functions.js', array( 'jquery' ), false, true );
 	}
 
 	/**
