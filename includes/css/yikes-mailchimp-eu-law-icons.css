@@ -26,3 +26,7 @@
 .yikes-mailchimp-eu-law:before {
 	content: "\e600";
 }
+
+#eu-compliance-law-checkbox-text_ifr {
+    min-height: 175px;
+}

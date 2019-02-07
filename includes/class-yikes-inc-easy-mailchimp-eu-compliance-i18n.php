@@ -29,14 +29,13 @@ class Yikes_Inc_Easy_Mailchimp_EU_Compliance_i18n {
 		load_plugin_textdomain(
 			$this->domain,
 			false,
-			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
+			YIKES_MAILCHIMP_GDPR_ADDON_PATH . '/languages/'
 		);
 	}
 	/**
 	 * Set the domain equal to that of the specified domain.
 	 *
-	 * @since    1.0.0
-	 * @param    string    $domain    The domain that represents the locale of this plugin.
+	 * @param string $domain The domain that represents the locale of this plugin.
 	 */
 	public function set_domain( $domain ) {
 		$this->domain = $domain;

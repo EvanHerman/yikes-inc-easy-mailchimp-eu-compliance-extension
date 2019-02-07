@@ -1,0 +1,1 @@
+!function(n){n("body").on("submit",".yikes-easy-mc-form",function(){const s=n(this),i=s.find('input[name="eu-laws"]');s.on("yikes_clear_input_fields_after_successful_submission",function(){i.prop("checked",!1)})})}(jQuery);

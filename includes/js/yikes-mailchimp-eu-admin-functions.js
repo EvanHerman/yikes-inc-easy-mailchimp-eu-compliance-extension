@@ -34,11 +34,27 @@
 			}
 		});
 
+		toggle_checkbox_is_disabled();
+		$( 'input[name="custom-field[eu-compliance-law-checkbox-disabled]"]' ).click( function() {
+			toggle_checkbox_is_disabled();
+		});
+
 		show_notification_for_opt_in_merge_field();
 		jQuery( 'select[name="custom-field[eu-compliance-law-save-opt-in-field]"]' ).change( function() {
 			show_notification_for_opt_in_merge_field();
 		});
 	});
+
+	function toggle_checkbox_is_disabled() {
+		const checkbox = $( 'input[name="custom-field[eu-compliance-law-checkbox-disabled]"]' );
+		const label    = checkbox.parents( 'label.custom-field-section' );
+
+		if ( checkbox.prop( 'checked' ) ) {
+			$( '.eu-law-compliance-section-container' ).children().not( label ).css( { 'opacity': '.6', 'pointer-events': 'none' } );
+		} else {
+			$( '.eu-law-compliance-section-container' ).children().not( label ).css( { 'opacity': '1.0', 'pointer-events': 'initial' } );
+		}
+	}
 
 	function show_notification_for_opt_in_merge_field() {
 

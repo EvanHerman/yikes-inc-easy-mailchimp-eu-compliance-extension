@@ -1,13 +1,40 @@
 'use strict';
-module.exports = function( grunt ) {
+module.exports = function(grunt) {
 
 	grunt.initConfig({
-		// generates POT file
+		uglify: {
+			dist: {
+				files: {
+					'includes/js/yikes-mailchimp-eu-admin-functions.min.js': [
+						'includes/js/yikes-mailchimp-eu-admin-functions.js'
+					],
+					'includes/js/yikes-mailchimp-front-end-form-functions.min.js': [
+						'includes/js/yikes-mailchimp-front-end-form-functions.js'
+					],
+				}
+			}
+		},
+		cssmin: {
+			target: {
+				files: [
+					{
+						expand: true,
+						cwd: 'includes/css',
+						src: [
+							'yikes-mailchimp-eu-law-extension-frontend.css',
+							'yikes-mailchimp-eu-law-icons.css',
+						],
+						dest: 'includes/css',
+						ext: '.min.css'
+					}
+				]
+			}
+		},
 		pot: {
 			options: {
-				text_domain: 'eu-opt-in-compliance-for-mailchimp',
-				dest: 'languages/', // Directory to place the pot file
-		        keywords: [ // WordPress localisation functions (functionname:#arguments)
+				text_domain: 'eu-opt-in-compliance-for-mailchimp', 
+				dest: 'languages/', 
+		        keywords: [
 		        	'__:1',
 		        	'_e:1',
 					'_x:1,2c',
@@ -25,17 +52,22 @@ module.exports = function( grunt ) {
 				],
 			},
 			files: {
-				src:  [ '**/*.php' ], // Parse all php files
+				src:  [ '**/*.php' ],
 				expand: true,
 			}
 		}
+
 	});
 
-	// load tasks
-	grunt.loadNpmTasks( 'grunt-pot' ); // POT file
+	// Load tasks.
+	grunt.loadNpmTasks( 'grunt-contrib-uglify-es' );
+	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
+	grunt.loadNpmTasks( 'grunt-pot' );
 
-	// register task
+	// Register task.
 	grunt.registerTask( 'default', [
-		'pot'
+		'uglify',
+		'cssmin'
 	]);
+
 };

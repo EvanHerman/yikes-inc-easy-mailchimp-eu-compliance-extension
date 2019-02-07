@@ -4,7 +4,7 @@ Donate link: http://www.yikesinc.com
 Tags: GDPR, MailChimp, Yikes MailChimp, EU, Compliance, Law, Opt-in
 Requires at least: 3.5
 Tested up to: 5.0.3
-Stable tag: 1.2.3
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,6 +49,12 @@ This plugin is aimed to help you make your forms compliant but *its installation
 2. Front-End: A checkbox with text is added to the front-end view of your MailChimp form
 
 == Changelog ==
+
+= 1.3.0 = 
+* Checkboxes can now be disabled on a per-form basis.
+* Enhanced the checkbox required filter to include the current form's ID.
+* Cleaned and code sniffed up all code.
+* Minified assets.
 
 = 1.2.3 = 
 * Unchecking the checkbox after a successful form submission. This requires Easy Forms v6.4.12.
