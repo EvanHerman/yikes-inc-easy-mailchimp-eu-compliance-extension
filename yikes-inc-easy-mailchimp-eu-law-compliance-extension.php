@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: GDPR Compliance for MailChimp
+ * Plugin Name: GDPR Compliance for Mailchimp
  * Plugin URI:  http://www.yikesinc.com
- * Description: This extends Easy Forms for MailChimp to help make forms comply with The EU General Data Protection Regulation (GDPR).
- * Version:     1.3.0
+ * Description: This extends Easy Forms for Mailchimp to help make forms comply with The EU General Data Protection Regulation (GDPR).
+ * Version:     1.3.1
  * Author:      YIKES, Inc.
  * Author URI:  http://www.yikesinc.com
  * License:     GPL-2.0+
@@ -11,18 +11,18 @@
  * Text Domain: eu-opt-in-compliance-for-mailchimp
  * Domain Path: /languages
  *
- * EU Opt-In Compliance for MailChimp is free software: you can redistribute it and/or modify
+ * EU Opt-In Compliance for Mailchimp is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 2 of the License, or
  * any later version.
  *
- * EU Opt-In Compliance for MailChimp is distributed in the hope that it will be useful,
+ * EU Opt-In Compliance for Mailchimp is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Easy Forms for MailChimp. If not, see <http://www.gnu.org/licenses/>.
+ * along with Easy Forms for Mailchimp. If not, see <http://www.gnu.org/licenses/>.
  *
  * We at YIKES Inc. embrace the open source philosophy on a daily basis. We donate company time back to the WordPress project,
  * and constantly strive to improve the WordPress project and community as a whole. We eat, sleep and breath WordPress.
@@ -57,11 +57,11 @@ function yikes_inc_mailchimp_eu_law_compliance_display_activation_error() {
 		</style>
 		<!-- display our error message -->
 		<div class="error">
-			<p><?php esc_html_e( 'GDPR Compliance for MailChimp could not be activated because the base plugin is not installed and active.', 'eu-opt-in-compliance-for-mailchimp' ); ?></p>
+			<p><?php esc_html_e( 'GDPR Compliance for Mailchimp could not be activated because the base plugin is not installed and active.', 'eu-opt-in-compliance-for-mailchimp' ); ?></p>
 			<p>
 			<?php
 			/* translators: the placeholder is a link. */
-			printf( esc_html__( 'Please install and activate %s before activating this extension.', 'eu-opt-in-compliance-for-mailchimp' ), '<a href="' . esc_url_raw( admin_url( 'plugin-install.php?tab=search&type=term&s=Yikes+Inc.+Easy+MailChimp+Forms' ) ) . '" title="Easy Forms for MailChimp">Easy Forms for MailChimp</a>' );
+			printf( esc_html__( 'Please install and activate %s before activating this extension.', 'eu-opt-in-compliance-for-mailchimp' ), '<a href="' . esc_url_raw( admin_url( 'plugin-install.php?tab=search&type=term&s=Yikes+Inc.+Easy+Mailchimp+Forms' ) ) . '" title="Easy Forms for Mailchimp">Easy Forms for Mailchimp</a>' );
 			?>
 			</p>
 		</div>
@@ -122,7 +122,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 		}
 
 		if ( ! defined( 'YIKES_MAILCHIMP_GDPR_ADDON_VERSION' ) ) {
-			define( 'YIKES_MAILCHIMP_GDPR_ADDON_VERSION', '1.3.0' );
+			define( 'YIKES_MAILCHIMP_GDPR_ADDON_VERSION', '1.3.1' );
 		}
 	}
 
@@ -388,6 +388,9 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 
 		if ( ! empty( $field_data ) ) {
 			foreach ( $field_data as $key => $field ) {
+				if ( $field['tag'] === 'EMAIL' ) {
+					continue;
+				}
 				$field_dd[ $field['tag'] ] = $field['name'];
 			}
 		}
@@ -436,7 +439,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 	/**
 	 * Custom form builder section content.
 	 */
-	public static function render_eu_compliance_section() {
+	public function render_eu_compliance_section() {
 
 		// Defining a new section, associated with the link above.
 		Yikes_Inc_Easy_Mailchimp_Extender_Helper::add_edit_form_section(
@@ -481,7 +484,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 						'type'        => 'wysiwyg',
 						'id'          => 'eu-compliance-law-checkbox-text',
 						'default'     => __( 'By checking this box I consent to the use of my information provided for email marketing purposes.', 'eu-opt-in-compliance-for-mailchimp' ),
-						'description' => __( 'This text will display alongside the checkbox. The request for consent must be given with the purpose for data processing included. Consent must be in plain language. Note: MailChimp limits this field to 1,000 characters and does not allow HTML.', 'eu-opt-in-compliance-for-mailchimp' ), // field description.
+						'description' => __( 'This text will display alongside the checkbox. The request for consent must be given with the purpose for data processing included. Consent must be in plain language. Note: Mailchimp limits this field to 1,000 characters and does not allow HTML.', 'eu-opt-in-compliance-for-mailchimp' ), // field description.
 					),
 					array(
 						'label'       => __( 'Save Checkbox Compliance Text', 'eu-opt-in-compliance-for-mailchimp' ),

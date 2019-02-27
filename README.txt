@@ -1,26 +1,26 @@
-=== GDPR Compliance for MailChimp ===
+=== GDPR Compliance for Mailchimp ===
 Contributors: yikesinc, eherman24, liljimmi, yikesitskevin
 Donate link: http://www.yikesinc.com
-Tags: GDPR, MailChimp, Yikes MailChimp, EU, Compliance, Law, Opt-in
+Tags: GDPR, Mailchimp, Yikes Mailchimp, EU, Compliance, Law, Opt-in
 Requires at least: 3.5
-Tested up to: 5.0.3
-Stable tag: 1.3.0
+Tested up to: 5.1.0
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This extends Easy Forms for MailChimp to help make forms comply with The EU General Data Protection Regulation (GDPR).
+This extends Easy Forms for Mailchimp to help make forms comply with The EU General Data Protection Regulation (GDPR).
 
 == Description == 
 
-This addon creates an additional section on the Easy Forms for MailChimp form builder called 'EU Law Compliance.' There you can manage settings that will assist forms to be compliant with The EU General Data Protection Regulation (GDPR) which replaces the Data Protection Directive 95/46/EC. The law applies to the processing of personal user data in the European Union (EU) regardless of whether the processing takes place in the EU or not.
+This addon creates an additional section on the Easy Forms for Mailchimp form builder called 'EU Law Compliance.' There you can manage settings that will assist forms to be compliant with The EU General Data Protection Regulation (GDPR) which replaces the Data Protection Directive 95/46/EC. The law applies to the processing of personal user data in the European Union (EU) regardless of whether the processing takes place in the EU or not.
 
-All MailChimp forms will have a checkbox above the submit button accompanied by text you can customize to confirm the user consents to their data being submitted.
+All Mailchimp forms will have a checkbox above the submit button accompanied by text you can customize to confirm the user consents to their data being submitted.
 
 There is an option to save your checkbox confirmation text as a note on the subscriber's profile. This is to help you demonstrate consent as required by GDPR.
 
 There is another option to save a value of your choice to a specific MERGE field on your list. Along with demonstrating consent, this can help you manage your lists by showing you who has opted-in post-GDPR.
 
-> Note: This add-on plugin requires [Easy Forms for MailChimp](https://wordpress.org/plugins/yikes-inc-easy-mailchimp-extender/) to work.
+> Note: This add-on plugin requires [Easy Forms for Mailchimp](https://wordpress.org/plugins/yikes-inc-easy-mailchimp-extender/) to work.
 
 == Installation ==
 
@@ -35,7 +35,7 @@ There is another option to save a value of your choice to a specific MERGE field
 **All documentation can be found in [our Knowledge Base](https://yikesplugins.com/support/knowledge-base/eu-compliance-for-easy-forms-for-mailchimp/).**
 
 = Do I need a another plugin for this to work? =
-Yes, this plugin is an add-on to [Easy Forms for MailChimp](https://wordpress.org/plugins/yikes-inc-easy-mailchimp-extender/).
+Yes, this plugin is an add-on to [Easy Forms for Mailchimp](https://wordpress.org/plugins/yikes-inc-easy-mailchimp-extender/).
 
 = How do I change the opt-in text? =
 After installing and activating the plugin, you will find a new section on the Form Builder screen called "EU Law Compliance." There you can customize the opt-in checkbox text.
@@ -45,12 +45,17 @@ This plugin is aimed to help you make your forms compliant but *its installation
 
 == Screenshots ==
 
-1. Admin: A new tab is added to your Easy Forms form editor where you can customize your compliance checkbox text along with other options for storing consent in MailChimp.
-2. Front-End: A checkbox with text is added to the front-end view of your MailChimp form
+1. Admin: A new tab is added to your Easy Forms form editor where you can customize your compliance checkbox text along with other options for storing consent in Mailchimp.
+2. Front-End: A checkbox with text is added to the front-end view of your Mailchimp form
 
 == Changelog ==
 
-= 1.3.0 = 
+= 1.3.1 = 
+* Updating all instances of MailChimp to Mailchimp.
+* Fixing an issue with static functions calling non static functions.
+* Removing email address from the list of potential fields to save opt-in values to.
+
+= 1.3.0 =
 * Checkboxes can now be disabled on a per-form basis.
 * Enhanced the checkbox required filter to include the current form's ID.
 * Cleaned and code sniffed up all code.
@@ -68,11 +73,11 @@ This plugin is aimed to help you make your forms compliant but *its installation
 * Changed the placeholder text for the Merge Field Opt-In Value field to help avoid confusion
 
 = 1.2.0 =
-* Added a new checkbox that controls whether your checkbox confirmation language is sent to MailChimp
+* Added a new checkbox that controls whether your checkbox confirmation language is sent to Mailchimp
 * Added functionality for adding your checkbox confirmation language as a note on a subscriber's profile
 * Added a new dropdown for saving an opt-in flag as a merge field
 * Added a new text field for entering your opt-in flag value
-* Added a character counter to the checkbox confirmation language field because MailChimp will limit each note to 1,000 characters.
+* Added a character counter to the checkbox confirmation language field because Mailchimp will limit each note to 1,000 characters.
 * Changed default checkbox confirmation language
 * Changed the checkbox so it is no longer pre-checked by default
 * Some copy changes
@@ -84,13 +89,13 @@ This plugin is aimed to help you make your forms compliant but *its installation
 * Fixed i18n errors in prior commit
 * Updated the text domain to yikes-inc-easy-mailchimp-eu-law-compliance-extension
 * Generated new .pot file
-* Renamed main plugin file to yikes-inc-easy-mailchimp-eu-law-compliance-extension.php for consistency with other Yikes MailChimp add-on plugins
+* Renamed main plugin file to yikes-inc-easy-mailchimp-eu-law-compliance-extension.php for consistency with other Yikes Mailchimp add-on plugins
 * Refactored the uninstall method so it's using the options array instead of custom DB table
 * Added assets folder and screenshots
 * Incremented version number
 
 = 1.1 =
-* Changes to keep this add-on in sync with the base Yikes MailChimp plugin
+* Changes to keep this add-on in sync with the base Yikes Mailchimp plugin
 * Changes to put this plugin on the official WordPress.org plugin repo
 
 = 1.0 =
