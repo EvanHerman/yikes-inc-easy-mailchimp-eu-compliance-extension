@@ -73,11 +73,11 @@ This plugin is aimed to help you make your forms compliant but *its installation
 * Changed the placeholder text for the Merge Field Opt-In Value field to help avoid confusion
 
 = 1.2.0 =
-* Added a new checkbox that controls whether your checkbox confirmation language is sent to MailChimp
+* Added a new checkbox that controls whether your checkbox confirmation language is sent to Mailchimp
 * Added functionality for adding your checkbox confirmation language as a note on a subscriber's profile
 * Added a new dropdown for saving an opt-in flag as a merge field
 * Added a new text field for entering your opt-in flag value
-* Added a character counter to the checkbox confirmation language field because MailChimp will limit each note to 1,000 characters.
+* Added a character counter to the checkbox confirmation language field because Mailchimp will limit each note to 1,000 characters.
 * Changed default checkbox confirmation language
 * Changed the checkbox so it is no longer pre-checked by default
 * Some copy changes
@@ -89,13 +89,13 @@ This plugin is aimed to help you make your forms compliant but *its installation
 * Fixed i18n errors in prior commit
 * Updated the text domain to yikes-inc-easy-mailchimp-eu-law-compliance-extension
 * Generated new .pot file
-* Renamed main plugin file to yikes-inc-easy-mailchimp-eu-law-compliance-extension.php for consistency with other Yikes MailChimp add-on plugins
+* Renamed main plugin file to yikes-inc-easy-mailchimp-eu-law-compliance-extension.php for consistency with other Yikes Mailchimp add-on plugins
 * Refactored the uninstall method so it's using the options array instead of custom DB table
 * Added assets folder and screenshots
 * Incremented version number
 
 = 1.1 =
-* Changes to keep this add-on in sync with the base Yikes MailChimp plugin
+* Changes to keep this add-on in sync with the base Yikes Mailchimp plugin
 * Changes to put this plugin on the official WordPress.org plugin repo
 
 = 1.0 =
