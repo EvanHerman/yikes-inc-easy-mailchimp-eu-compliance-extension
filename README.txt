@@ -3,8 +3,8 @@ Contributors: yikesinc, eherman24, liljimmi, yikesitskevin
 Donate link: http://www.yikesinc.com
 Tags: GDPR, Mailchimp, Yikes Mailchimp, EU, Compliance, Law, Opt-in
 Requires at least: 3.5
-Tested up to: 5.1.0
-Stable tag: 1.3.1
+Tested up to: 5.2
+Stable tag: 1.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,6 +49,9 @@ This plugin is aimed to help you make your forms compliant but *its installation
 2. Front-End: A checkbox with text is added to the front-end view of your Mailchimp form
 
 == Changelog ==
+
+= 1.3.2 =
+* Fixing a syntax error for older versions of PHP.
 
 = 1.3.1 = 
 * Updating all instances of MailChimp to Mailchimp.
