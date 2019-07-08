@@ -3,7 +3,7 @@
  * Plugin Name: GDPR Compliance for Mailchimp
  * Plugin URI:  http://www.yikesinc.com
  * Description: This extends Easy Forms for Mailchimp to help make forms comply with The EU General Data Protection Regulation (GDPR).
- * Version:     1.3.1
+ * Version:     1.3.2
  * Author:      YIKES, Inc.
  * Author URI:  http://www.yikesinc.com
  * License:     GPL-2.0+
@@ -122,7 +122,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 		}
 
 		if ( ! defined( 'YIKES_MAILCHIMP_GDPR_ADDON_VERSION' ) ) {
-			define( 'YIKES_MAILCHIMP_GDPR_ADDON_VERSION', '1.3.1' );
+			define( 'YIKES_MAILCHIMP_GDPR_ADDON_VERSION', '1.3.2' );
 		}
 	}
 
@@ -147,7 +147,10 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 			$form_id          = ! empty( $data['yikes-mailchimp-submitted-form'] ) ? $data['yikes-mailchimp-submitted-form'] : 0;
 		}
 
-		if ( ! $checkbox_checked && $this->is_checkbox_enabled_wrapper( $form_id ) && ! empty( $this->is_checkbox_required( $form_id ) ) ) {
+		$checkbox_required = $this->is_checkbox_required( $form_id );
+		$checkbox_enabled  = $this->is_checkbox_enabled_wrapper( $form_id );
+
+		if ( ! $checkbox_checked && $checkbox_enabled && ! empty( $checkbox_required ) ) {
 			$merge_variables['error']   = true;
 			$merge_variables['message'] = apply_filters( 'yikes_mailchimp_eu_compliance_checkbox_required_message', __( 'Please give your consent to subscribe to this list by checking the checkbox.', 'eu-opt-in-compliance-for-mailchimp' ), $merge_variables );
 		}
