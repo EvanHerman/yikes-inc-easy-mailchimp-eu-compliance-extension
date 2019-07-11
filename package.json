@@ -10,7 +10,7 @@
   "license": "MIT",
   "scripts": {},
   "dependencies": {
-    "grunt": "^1.0.3",
+    "grunt": "^1.0.4",
     "js-yaml": ">=3.13.1"
   }
 }
