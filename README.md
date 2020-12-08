@@ -15,6 +15,9 @@ All of the MailChimp forms on your site will then contain a check box below them
 
 #### Changelog
 
+<strong>1.3.5</strong>
+* Remove unnecessary files
+
 <strong>1.3.4</strong>
 * Replace deprecated function wp_make_content_images_responsive
 
