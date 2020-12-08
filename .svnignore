@@ -9,3 +9,4 @@ phpunit.xml.dist
 webpack.config.js
 composer.json
 composer.lock
+README.md
