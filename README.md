@@ -15,6 +15,37 @@ All of the MailChimp forms on your site will then contain a check box below them
 
 #### Changelog
 
+<strong>1.3.4</strong>
+* Replace deprecated function wp_make_content_images_responsive
+
+<strong>1.3.3</strong>
+* Security Update
+
+<strong>1.3.2</strong>
+* Fixing a syntax error for older versions of PHP.
+
+<strong>1.3.1</strong>
+* Updating all instances of MailChimp to Mailchimp.
+* Fixing an issue with static functions calling non static functions.
+* Removing email address from the list of potential fields to save opt-in values to.
+
+<strong>1.3.0</strong>
+* Checkboxes can now be disabled on a per-form basis.
+* Enhanced the checkbox required filter to include the current form's ID.
+* Cleaned and code sniffed up all code.
+* Minified assets.
+
+<strong>1.2.3</strong>
+* Unchecking the checkbox after a successful form submission. This requires Easy Forms v6.4.12.
+* Fixing a syntax error for older versions of PHP.
+
+<strong>1.2.2</strong>
+* Adding a server side check that makes sure the checkbox was checked. The default message returned when the checkbox isn't checked is "Please give your consent to subscribe to this list by checking the checkbox." This can be filtered via `yikes_mailchimp_eu_compliance_checkbox_required_message`.
+
+<strong>1.2.1</strong>
+* Removed the use of the `the_content` filter (also removed the filter `yikes-mailchimp-eu-compliance-use-the-content` that controlled the use of `the_content`)
+* Changed the placeholder text for the Merge Field Opt-In Value field to help avoid confusion
+
 <strong>v1.2.0</strong>
 * Added a new checkbox that controls whether your checkbox confirmation language is sent to MailChimp
 * Added functionality for adding your checkbox confirmation language as a note on a subscriber's profile
