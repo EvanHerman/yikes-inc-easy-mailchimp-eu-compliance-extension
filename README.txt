@@ -3,8 +3,8 @@ Contributors: yikesinc, eherman24, liljimmi, yikesitskevin
 Donate link: http://www.yikesinc.com
 Tags: GDPR, Mailchimp, Yikes Mailchimp, EU, Compliance, Law, Opt-in
 Requires at least: 3.5
-Tested up to: 5.2
-Stable tag: 1.3.5
+Tested up to: 5.6
+Stable tag: 1.3.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
