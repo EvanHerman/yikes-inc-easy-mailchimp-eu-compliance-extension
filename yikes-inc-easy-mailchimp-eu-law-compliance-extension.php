@@ -3,7 +3,7 @@
  * Plugin Name: GDPR Compliance for Mailchimp
  * Plugin URI:  http://www.yikesinc.com
  * Description: This extends Easy Forms for Mailchimp to help make forms comply with The EU General Data Protection Regulation (GDPR).
- * Version:     1.3.6
+ * Version:     1.3.7
  * Author:      YIKES, Inc.
  * Author URI:  http://www.yikesinc.com
  * License:     GPL-2.0+
@@ -122,7 +122,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 		}
 
 		if ( ! defined( 'YIKES_MAILCHIMP_GDPR_ADDON_VERSION' ) ) {
-			define( 'YIKES_MAILCHIMP_GDPR_ADDON_VERSION', '1.3.6' );
+			define( 'YIKES_MAILCHIMP_GDPR_ADDON_VERSION', '1.3.7' );
 		}
 	}
 
