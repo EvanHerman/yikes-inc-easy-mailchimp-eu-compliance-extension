@@ -1,10 +1,10 @@
 === GDPR Compliance for Mailchimp ===
 Contributors: yikesinc, eherman24, liljimmi, yikesitskevin, jpowersdev
-Donate link: http://www.yikesinc.com
+Donate link: https://www.codeparrots.com
 Tags: GDPR, Mailchimp, Yikes Mailchimp, EU, Compliance, Law, Opt-in
 Requires at least: 3.5
 Tested up to: 6.0
-Stable tag: 1.3.7
+Stable tag: 1.3.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,7 +32,7 @@ There is another option to save a value of your choice to a specific MERGE field
 
 == Frequently Asked Questions ==
 
-**All documentation can be found in [our Knowledge Base](https://yikesplugins.com/support/knowledge-base/eu-compliance-for-easy-forms-for-mailchimp/).**
+**All documentation can be found in [our Knowledge Base](https://codeparrots.com/support/knowledge-base/eu-compliance-for-easy-forms-for-mailchimp/).**
 
 = Do I need a another plugin for this to work? =
 Yes, this plugin is an add-on to [Easy Forms for Mailchimp](https://wordpress.org/plugins/yikes-inc-easy-mailchimp-extender/).
@@ -49,6 +49,11 @@ This plugin is aimed to help you make your forms compliant but *its installation
 2. Front-End: A checkbox with text is added to the front-end view of your Mailchimp form
 
 == Changelog ==
+
+= 1.3.8 =
+* Update tested up to value.
+* Remove reference to old author.
+* Update URLs, email addresses and backlinks to new website.
 
 = 1.3.7 =
 * Housekeeping

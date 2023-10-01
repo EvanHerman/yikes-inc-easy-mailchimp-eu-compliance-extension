@@ -5,7 +5,7 @@
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @link       http://www.yikesinc.com/
+ * @link       http://www.codeparrots.com/
  * @since      1.0.0
  *
  * @package    Yikes_Inc_Easy_Mailchimp_Extender
