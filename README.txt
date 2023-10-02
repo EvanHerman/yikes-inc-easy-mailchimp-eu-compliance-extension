@@ -1,9 +1,9 @@
 === GDPR Compliance for Mailchimp ===
-Contributors: yikesinc, eherman24, liljimmi, yikesitskevin, jpowersdev
+Contributors: yikesinc, eherman24, liljimmi, yikesitskevin, jpowersdev, codeparrots
 Donate link: https://www.codeparrots.com
 Tags: GDPR, Mailchimp, Yikes Mailchimp, EU, Compliance, Law, Opt-in
 Requires at least: 3.5
-Tested up to: 6.0
+Tested up to: 6.3
 Stable tag: 1.3.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
