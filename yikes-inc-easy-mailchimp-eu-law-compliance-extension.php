@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: GDPR Compliance for Mailchimp
- * Plugin URI:  http://www.yikesinc.com
+ * Plugin URI:  https://www.codeparrots.com
  * Description: This extends Easy Forms for Mailchimp to help make forms comply with The EU General Data Protection Regulation (GDPR).
- * Version:     1.3.7
- * Author:      YIKES, Inc.
- * Author URI:  http://www.yikesinc.com
+ * Version:     1.3.8
+ * Author:      Code Parrots
+ * Author URI:  https://www.codeparrots.com
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain: eu-opt-in-compliance-for-mailchimp
@@ -24,7 +24,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Easy Forms for Mailchimp. If not, see <http://www.gnu.org/licenses/>.
  *
- * We at YIKES Inc. embrace the open source philosophy on a daily basis. We donate company time back to the WordPress project,
+ * We at Code Parrots embrace the open source philosophy on a daily basis. We donate company time back to the WordPress project,
  * and constantly strive to improve the WordPress project and community as a whole. We eat, sleep and breath WordPress.
  *
  * "'Free software' is a matter of liberty, not price. To understand the concept, you should think of 'free' as in 'free speech,' not as in 'free beer'."
@@ -122,7 +122,7 @@ class Yikes_Inc_Easy_Mailchimp_EU_Law_Compliance_Extension {
 		}
 
 		if ( ! defined( 'YIKES_MAILCHIMP_GDPR_ADDON_VERSION' ) ) {
-			define( 'YIKES_MAILCHIMP_GDPR_ADDON_VERSION', '1.3.7' );
+			define( 'YIKES_MAILCHIMP_GDPR_ADDON_VERSION', '1.3.8' );
 		}
 	}
 

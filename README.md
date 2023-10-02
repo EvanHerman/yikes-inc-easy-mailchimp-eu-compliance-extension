@@ -1,13 +1,13 @@
 #  GDPR Compliance for MailChimp
 
-This addon extends the base plugin, [Easy Forms for MailChimp by YIKES](https://github.com/yikesinc/yikes-inc-easy-mailchimp-extender/tree/staging), by creating an additional section to the manage forms page called 'EU Law Compliance'. 
+This addon extends the base plugin, [Easy Forms for MailChimp by YIKES](https://github.com/evanherman/yikes-inc-easy-mailchimp-extender/tree/staging), by creating an additional section to the manage forms page called 'EU Law Compliance'. 
 
 All of the MailChimp forms on your site will then contain a check box below them which will assist you in making your forms compliant with EU laws.
 
 
 ## Installation
 
-1. Ensure you have the base plugin installed, [Easy MailChimp by Yikes Inc](https://github.com/yikesinc/yikes-inc-easy-mailchimp-extender/tree/staging)
+1. Ensure you have the base plugin installed, [Easy MailChimp by Yikes Inc](https://github.com/evanherman/yikes-inc-easy-mailchimp-extender/tree/staging)
 2. Download the latest release of the GDPR Compliance for MailChimp extension
 3. Go to Plugins > Add New > Upload Plugin and upload the .zip
 4. Either begin using with the default settings or head into the 'Edit Form' page and select the 'EU Law Compliance' tab at the top to customize the checkbox text and precheck state. 
